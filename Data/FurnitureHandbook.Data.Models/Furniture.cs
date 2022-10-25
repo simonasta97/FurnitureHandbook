@@ -12,15 +12,19 @@
     {
         public string Name { get; set; }
 
+        public string ImageUrl { get; set; }
+
         public string Color { get; set; }
 
-        public int ProjectId { get; set; }
+        public decimal Length { get; set; }
+
+        public decimal Width { get; set; }
+
+        public decimal Depth { get; set; }
+
+        public string ProjectId { get; set; }
 
         public virtual Project Project { get; set; }
-
-        public int SizeId { get; set; }
-
-        public virtual Size Size { get; set; }
 
         public int TextureId { get; set; }
 

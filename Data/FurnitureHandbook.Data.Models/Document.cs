@@ -1,11 +1,12 @@
 ﻿namespace FurnitureHandbook.Data.Models
 {
-    using FurnitureHandbook.Data.Common.Models;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+
+    using FurnitureHandbook.Data.Common.Models;
 
     public class Document : BaseDeletableModel<int>
     {

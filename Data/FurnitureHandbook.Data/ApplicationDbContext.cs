@@ -24,7 +24,21 @@
         {
         }
 
-        public DbSet<Setting> Settings { get; set; }
+        public DbSet<Category> Categories { get; set; }
+
+        public DbSet<Client> Clients { get; set; }
+
+        public DbSet<Document> Documents { get; set; }
+
+        public DbSet<Edgeband> Edgebands { get; set; }
+
+        public DbSet<Furniture> Furnitures { get; set; }
+
+        public DbSet<Hardware> Hardwares { get; set; }
+
+        public DbSet<Project> Projects { get; set; }
+
+        public DbSet<Texture> Textures { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 

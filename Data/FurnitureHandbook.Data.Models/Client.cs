@@ -6,7 +6,6 @@
     using System.Text;
     using System.Threading.Tasks;
 
-
     using FurnitureHandbook.Data.Common.Models;
 
     public class Client : BaseDeletableModel<int>

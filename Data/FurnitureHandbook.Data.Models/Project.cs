@@ -5,10 +5,11 @@
 
     using FurnitureHandbook.Data.Common.Models;
 
-    public class Project : BaseDeletableModel<int>
+    public class Project : BaseDeletableModel<string>
     {
         public Project()
         {
+            this.Id = Guid.NewGuid().ToString();
             this.Furnitures = new HashSet<Furniture>();
         }
 
