@@ -26,7 +26,11 @@
             var seeders = new List<ISeeder>
                           {
                               new RolesSeeder(),
-                              new SettingsSeeder(),
+                              new TexturesSeeder(),
+                              new EdgebandSeeder(),
+                              new HardwareSeeder(),
+                              new ClientSeeder(),
+                              new CategorySeeder(),
                           };
 
             foreach (var seeder in seeders)
