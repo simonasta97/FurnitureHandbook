@@ -1,0 +1,41 @@
+﻿@model ProjectsListViewModel
+
+@{
+    this.ViewData["Title"] = "Всички ПРОЕКТИ, страница " + Model.PageNumber;
+}
+
+@if (this.TempData.ContainsKey("Message"))
+{
+    <div class="alert alert-success">@this.TempData["Message"]</div>
+}
+
+<h1>@this.ViewData["Title"]</h1>
+<hr />
+@foreach (var project in this.Model.Projects)
+{
+    <div>
+        <div class="card mb-3" style="max-width:1140px;max-height:256px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src=@project.ImageUrl class="img-fluid rounded-start " style="height:100%;max-height:240px;max-width:350px;" alt=@project.Title>
+                </div>
+                <div class="col-md-8">
+                    <div class="col-md-6 card-body d-md-inline-block">
+                        <p class="card-text"><small class="text-muted">Последна промяна преди @DateTime.Now.Subtract(project.CreatedOn).Days дни.</small></p>
+                    </div>
+                    <div class="col-md-4 card-body d-md-inline-block">
+                        <p class="float-md-right" style="margin-bottom:15%">@project.TotalPrice лв.</p>
+                        <ul class="btn-group-toggle" style="list-style:none">
+                            <li class="single-meta">
+                                <a asp-controller="Trips" asp-action="ById" asp-route-id="@project.Id" class="float-md-right alert btn btn-info">View Details</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<hr />
+
+<partial name="_PagingPartial" model="@Model" />

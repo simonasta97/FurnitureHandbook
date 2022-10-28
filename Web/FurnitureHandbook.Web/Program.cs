@@ -8,6 +8,7 @@
     using FurnitureHandbook.Data.Models;
     using FurnitureHandbook.Data.Repositories;
     using FurnitureHandbook.Data.Seeding;
+    using FurnitureHandbook.Services.Data.Projects;
     using FurnitureHandbook.Services.Mapping;
     using FurnitureHandbook.Services.Messaging;
     using FurnitureHandbook.Web.ViewModels;
@@ -63,6 +64,7 @@
 
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
+            services.AddTransient<IProjectsService, ProjectsService>();
         }
 
         private static void Configure(WebApplication app)
