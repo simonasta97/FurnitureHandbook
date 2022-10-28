@@ -44,7 +44,7 @@
             foreach (Hardware hardware in hardwaresList)
             {
                 var dbHardware = await dbContext.Hardwares
-                    .FirstOrDefaultAsync(x => x.Id == hardware.Id);
+                    .FirstOrDefaultAsync(x => x.MechanismType == hardware.MechanismType);
 
                 if (dbHardware == null)
                 {

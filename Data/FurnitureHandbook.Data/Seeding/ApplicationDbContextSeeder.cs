@@ -31,6 +31,7 @@
                               new HardwareSeeder(),
                               new ClientSeeder(),
                               new CategorySeeder(),
+                              new ProjectSeeder(),
                           };
 
             foreach (var seeder in seeders)
