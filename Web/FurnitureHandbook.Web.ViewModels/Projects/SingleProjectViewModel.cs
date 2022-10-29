@@ -9,29 +9,30 @@
     using AutoMapper;
     using FurnitureHandbook.Data.Models;
     using FurnitureHandbook.Services.Mapping;
-    using Microsoft.EntityFrameworkCore.Metadata;
 
-    public class ProjectViewModel : IMapFrom<Project>, IHaveCustomMappings
+    public class SingleProjectViewModel : IMapFrom<Project>, IHaveCustomMappings
     {
         public string Id { get; set; }
 
-        public DateTime CreatedOn { get; set; }
-
-        public string ImageUrl { get; set; }
-
         public string Title { get; set; }
 
-        public StatusType Status { get; set; }
+        public DateTime StartDate { get; set; }
+
+        public DateTime EndDate { get; set; }
 
         public decimal TotalPrice { get; set; }
 
-        public string ClientFullName { get; set; }
+        public decimal DownPayment { get; set; }
 
-        public string ClientPhoneNumber { get; set; }
+        public string Description { get; set; }
+
+        public string CategoryName { get; set; }
+
+        public ICollection<Furniture> Furnitures { get; set; }
 
         public void CreateMappings(IProfileExpression configuration)
         {
-            configuration.CreateMap<Project, ProjectViewModel>();
+            configuration.CreateMap<Project, SingleProjectViewModel>();
         }
     }
 }

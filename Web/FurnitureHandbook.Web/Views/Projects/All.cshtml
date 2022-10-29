@@ -21,13 +21,16 @@
                 </div>
                 <div class="col-md-8">
                     <div class="col-md-6 card-body d-md-inline-block">
+                        <h5 class="card-title">@project.Title</h5>
+                        <span>Статус: @project.Status</span>
+                        <p class="card-text" style="margin-top:10%;margin-bottom:0%">Клиент: @project.ClientFullName - телефон: @project.ClientPhoneNumber </p>
                         <p class="card-text"><small class="text-muted">Последна промяна преди @DateTime.Now.Subtract(project.CreatedOn).Days дни.</small></p>
                     </div>
                     <div class="col-md-4 card-body d-md-inline-block">
-                        <p class="float-md-right" style="margin-bottom:15%">@project.TotalPrice лв.</p>
+                        <h5 class="float-md-right" style="margin-bottom:15%">@project.TotalPrice лв.</h5>
                         <ul class="btn-group-toggle" style="list-style:none">
                             <li class="single-meta">
-                                <a asp-controller="Trips" asp-action="ById" asp-route-id="@project.Id" class="float-md-right alert btn btn-info">View Details</a>
+                                <a asp-controller="Projects" asp-action="ById" asp-route-id="@project.Id" class="float-md-right alert btn btn-info">Детайли</a>
                             </li>
                         </ul>
                     </div>

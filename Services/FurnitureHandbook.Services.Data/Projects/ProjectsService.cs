@@ -33,5 +33,12 @@
            => await this.projectsRepository
                .AllAsNoTracking()
                .CountAsync();
+
+        public async Task<TModel> GetByIdAsync<TModel>(string id)
+            => await this.projectsRepository
+                .AllAsNoTracking()
+                .Where(x => x.Id == id)
+                .To<TModel>()
+                .FirstOrDefaultAsync();
     }
 }

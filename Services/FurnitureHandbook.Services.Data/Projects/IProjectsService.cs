@@ -11,5 +11,7 @@
         Task<IEnumerable<TModel>> GetAllUserProjects<TModel>(string userId, int page, int itemsPerPage = 6);
 
         Task<int> GetCountAsync();
+
+        Task<TModel> GetByIdAsync<TModel>(string id);
     }
 }

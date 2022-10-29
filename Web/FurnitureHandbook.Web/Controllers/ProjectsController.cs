@@ -6,9 +6,11 @@
 
     using FurnitureHandbook.Services.Data.Projects;
     using FurnitureHandbook.Web.ViewModels.Projects;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Mvc;
 
+    [Authorize]
     public class ProjectsController : Controller
     {
         private readonly IWebHostEnvironment webHostEnvironment;
@@ -40,5 +42,14 @@
 
             return this.View(viewModel);
         }
+
+        public async Task<IActionResult> ById(string id)
+        {
+            var trip = await this.projectsService
+                .GetByIdAsync<SingleProjectViewModel>(id);
+
+            return this.View(trip);
+        }
+
     }
 }
