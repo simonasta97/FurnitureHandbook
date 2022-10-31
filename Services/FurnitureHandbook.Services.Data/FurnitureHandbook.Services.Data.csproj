@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Data\FurnitureHandbook.Data.Common\FurnitureHandbook.Data.Common.csproj" />
     <ProjectReference Include="..\..\Data\FurnitureHandbook.Data.Models\FurnitureHandbook.Data.Models.csproj" />
+    <ProjectReference Include="..\..\Web\FurnitureHandbook.Web.ViewModels\FurnitureHandbook.Web.ViewModels.csproj" />
     <ProjectReference Include="..\FurnitureHandbook.Services.Mapping\FurnitureHandbook.Services.Mapping.csproj" />
   </ItemGroup>
 

@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Data\FurnitureHandbook.Data.Models\FurnitureHandbook.Data.Models.csproj" />
+    <ProjectReference Include="..\..\FurnitureHandbook.Common\FurnitureHandbook.Common.csproj" />
     <ProjectReference Include="..\..\Services\FurnitureHandbook.Services.Mapping\FurnitureHandbook.Services.Mapping.csproj" />
   </ItemGroup>
 

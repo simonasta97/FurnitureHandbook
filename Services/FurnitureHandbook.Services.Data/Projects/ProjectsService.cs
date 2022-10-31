@@ -9,15 +9,55 @@
     using FurnitureHandbook.Data.Common.Repositories;
     using FurnitureHandbook.Data.Models;
     using FurnitureHandbook.Services.Mapping;
+    using FurnitureHandbook.Web.ViewModels.Projects;
     using Microsoft.EntityFrameworkCore;
+
+    using static System.Net.Mime.MediaTypeNames;
+    using static FurnitureHandbook.Common.GlobalConstants.Project;
 
     public class ProjectsService : IProjectsService
     {
         private readonly IDeletableEntityRepository<Project> projectsRepository;
+        private readonly IDeletableEntityRepository<Client> clientsRepository;
 
-        public ProjectsService(IDeletableEntityRepository<Project> projectsRepository)
+        public ProjectsService(IDeletableEntityRepository<Project> projectsRepository, IDeletableEntityRepository<Client> clientsRepository)
         {
             this.projectsRepository = projectsRepository;
+            this.clientsRepository = clientsRepository;
+        }
+
+        public async Task CreateAsync(CreateProjectInputModel projectModel)
+        {
+            if (projectModel.StartDate > projectModel.EndDate)
+            {
+                throw new Exception(StartBeforeEndDate);
+            }
+
+            var clientExist = this.clientsRepository
+                .AllAsNoTracking()
+                .Any(x => x.Id == projectModel.ClientId);
+
+            if (!clientExist)
+            {
+                throw new Exception(ClientNotExist);
+            }
+
+            var project = new Project
+            {
+                Title = projectModel.Title,
+                Description = projectModel.Description,
+                ImageUrl = projectModel.ImageUrl,
+                Status = projectModel.Status,
+                StartDate = projectModel.StartDate,
+                EndDate = projectModel.EndDate,
+                TotalPrice = projectModel.TotalPrice,
+                DownPayment = projectModel.DownPayment,
+                ClientId = projectModel.ClientId,
+                CategoryId = projectModel.CategoryId,
+            };
+
+            await this.projectsRepository.AddAsync(project);
+            await this.projectsRepository.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<TModel>> GetAllUserProjects<TModel>(string userId, int page, int itemsPerPage = 6)

@@ -16,6 +16,8 @@
         {
             public const int MinTitleLength = 5;
             public const int MaxTitleLength = 30;
+            public const string StartBeforeEndDate = "Началната дата на проекта трябва да бъде преди крайната дата!";
+            public const string ClientNotExist = "Клиента не съществува!";
         }
 
         public class Furniture
