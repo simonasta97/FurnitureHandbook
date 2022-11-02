@@ -2,6 +2,12 @@
 
 @{
     this.ViewData["Title"] = "Всички ПРОЕКТИ, страница " + Model.PageNumber;
+    IDictionary<string, string> status = new Dictionary<string, string>()
+    {
+        {"Completed", "Завършен"},
+        {"Active", "Активен"},
+        {"Cancelled", "Отказан"},
+    };
 }
 
 @if (this.TempData.ContainsKey("Message"))
@@ -22,7 +28,7 @@
                 <div class="col-md-8">
                     <div class="col-md-6 card-body d-md-inline-block">
                         <h5 class="card-title">@project.Title</h5>
-                        <span>Статус: @project.Status</span>
+                        <span>Статус: @status[project.Status]</span>
                         <p class="card-text" style="margin-top:10%;margin-bottom:0%">Клиент: @project.ClientFullName - телефон: @project.ClientPhoneNumber </p>
                         <p class="card-text"><small class="text-muted">Последна промяна преди @DateTime.Now.Subtract(project.CreatedOn).Days дни.</small></p>
                     </div>

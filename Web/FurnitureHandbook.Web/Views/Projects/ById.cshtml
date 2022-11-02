@@ -5,8 +5,8 @@
 }
 
 <h2 style="font-family: sans-serif">@this.ViewData["Title"]</h2>
-<h5 class="font-weight-lighter">Начална дата: @Model.StartDate.ToString("dd MMMM yyyy")</h5>
-<h5 class="font-weight-lighter">Крайна дата: @Model.EndDate.ToString("dd MMMM yyyy")</h5>
+<h5 class="font-weight-lighter">Начална дата: @(Model.StartDate.HasValue ? Model.StartDate.Value.ToString("dd MMMM yyyy") : "")</h5>
+<h5 class="font-weight-lighter">Крайна дата: @(Model.EndDate.HasValue ? Model.StartDate.Value.ToString("dd MMMM yyyy") : "")</h5>
 <hr />
 <div class="col-md-12">
     <div id="carouselExampleControls" class="carousel slide col-md-8" data-bs-ride="carousel" style="max-height:400px;max-width:550px;display:inline-block">

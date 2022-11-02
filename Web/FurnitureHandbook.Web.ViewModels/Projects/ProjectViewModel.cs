@@ -21,7 +21,7 @@
 
         public string Title { get; set; }
 
-        public StatusType Status { get; set; }
+        public string Status { get; set; }
 
         public decimal TotalPrice { get; set; }
 

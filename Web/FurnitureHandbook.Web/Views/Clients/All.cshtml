@@ -1,6 +1,6 @@
 ﻿@model ClientsListViewModel
 @{
-    this.ViewData["Title"] = "Списък на клиентите";
+    this.ViewData["Title"] = "Списък с клиенти";
 }
 
 @if (this.TempData.ContainsKey("Message"))
@@ -8,12 +8,13 @@
     <div class="alert alert-success">@this.TempData["Message"]</div>
 }
 
-<h2>@this.ViewData["Title"] - @Model.Clients.Count()</h2>
+<h2>@this.ViewData["Title"]</h2>
+<h4 class="text-muted">Брой: @Model.Clients.Count()</h4>
 <hr />
-<div>
+<div class="text-center">
     <ul style="list-style:none">
         <li class="nav-item">
-            <a class="float-md-none alert btn btn-outline-secondary" asp-controller="Clients" asp-action="Create">Добави клиент</a>
+            <a class="btn btn-secondary btn-lg" asp-controller="Clients" asp-action="Create">Добави клиент</a>
         </li>
     </ul>
 </div>

@@ -33,14 +33,6 @@
                 throw new Exception(StartBeforeEndDate);
             }
 
-            var clientExist = this.clientsRepository
-                .AllAsNoTracking()
-                .Any(x => x.Id == projectModel.ClientId);
-
-            if (!clientExist)
-            {
-                throw new Exception(ClientNotExist);
-            }
 
             var project = new Project
             {
