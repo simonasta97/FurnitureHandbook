@@ -1,0 +1,21 @@
+﻿@model CategoriesListViewModel
+@{
+    this.ViewData["Title"] = "Категории";
+}
+
+<h4 class="text-muted text-center">ДОКУМЕНТАЦИЯ</h4>
+<h2 class ="text-center">Каква категория мебели ще произвеждаш?</h2>
+<hr />
+
+<div>
+    @foreach (var category in this.Model.Categories)
+    {
+        <div class="card text-center" style="margin-bottom:3%;margin-right:10%;margin-left:10%">
+            <div class="card-body">
+                <a asp-controller="Categories" asp-action="ById" asp-route-id="@category.Id" class="card-title btn btn-outline-info">@category.Name</a>
+                <p class="card-text" style="margin-right:5%;margin-left:5%">@category.Description</p>
+            </div>
+            <img src=@category.ImageUrl class="card-img-bottom rounded img-fluid" style="max-width:auto;" alt=@category.Name>
+        </div>
+    }
+</div>

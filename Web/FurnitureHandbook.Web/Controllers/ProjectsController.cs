@@ -50,6 +50,5 @@
 
             return this.View(trip);
         }
-
     }
 }
