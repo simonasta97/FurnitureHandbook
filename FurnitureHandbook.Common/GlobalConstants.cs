@@ -6,6 +6,8 @@
 
         public const string AdministratorRoleName = "Administrator";
 
+        public const string Message = "Message";
+
         public const int MinNameLength = 3;
         public const int MaxNameLength = 30;
 
@@ -16,6 +18,7 @@
         {
             public const int MinTitleLength = 5;
             public const int MaxTitleLength = 30;
+
             public const string StartBeforeEndDate = "Началната дата на проекта трябва да бъде преди крайната дата!";
             public const string ClientNotExist = "Клиента не съществува!";
         }
@@ -37,6 +40,9 @@
 
             public const int MinAddressLength = 10;
             public const int MaxAddressLength = 200;
+
+            public const string ClientAlreadyExist = "Клиента вече съществува!";
+            public const string ClientAdded = "Клиента e добавен успешно!";
         }
     }
 }

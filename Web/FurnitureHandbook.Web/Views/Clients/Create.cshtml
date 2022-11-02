@@ -1,0 +1,31 @@
+﻿@model CreateClientInputModel
+@{
+    this.ViewData["Title"] = "Добави клиент";
+}
+
+@if (this.TempData.ContainsKey("Message"))
+{
+    <div class="alert alert-danger">@this.TempData["Message"]</div>
+}
+
+<form method="post" class="col-md-6 offset-md-3">
+    <h2>@this.ViewData["Title"]</h2>
+    <hr />
+    <div class="form-group">
+        <label asp-for="FullName"></label>
+        <input asp-for="FullName" class="form-control" />
+        <span asp-validation-for="FullName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PhoneNumber"></label>
+        <textarea asp-for="PhoneNumber" class="form-control"></textarea>
+        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Address"></label>
+        <textarea asp-for="Address" class="form-control"></textarea>
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+    <hr />
+    <input type="submit" class="btn btn-primary" value="Създай клиент" />
+</form>

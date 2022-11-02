@@ -1,0 +1,33 @@
+﻿@model ClientsListViewModel
+@{
+    this.ViewData["Title"] = "Списък на клиентите";
+}
+
+@if (this.TempData.ContainsKey("Message"))
+{
+    <div class="alert alert-success">@this.TempData["Message"]</div>
+}
+
+<h2>@this.ViewData["Title"] - @Model.Clients.Count()</h2>
+<hr />
+<div>
+    <ul style="list-style:none">
+        <li class="nav-item">
+            <a class="float-md-none alert btn btn-outline-secondary" asp-controller="Clients" asp-action="Create">Добави клиент</a>
+        </li>
+    </ul>
+</div>
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    @foreach (var client in this.Model.Clients)
+    {
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">@client.FullName</h5>
+                    <p class="card-text">@client.PhoneNumber</p>
+                    <p class="card-text">@client.Address</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
