@@ -1,0 +1,69 @@
+﻿@using FurnitureHandbook.Data.Models
+@model CreateProjectInputModel
+@{
+    this.ViewData["Title"] = "Създай нов ПРОЕКТ";
+    var categories = this.Model.Categories.Select(x => new SelectListItem(x.Value, x.Key));
+    var clients = this.Model.Clients.Select(x => new SelectListItem(x.Value, x.Key));
+}
+
+@if (this.TempData.ContainsKey("Message"))
+{
+    <div class="alert alert-danger">@this.TempData["Message"]</div>
+}
+
+<form method="post" class="col-md-6 offset-md-3"
+      enctype="multipart/form-data">
+    <h1>@this.ViewData["Title"]</h1>
+    <hr />
+    <div class="form-group">
+        <label asp-for="Title">Заглавие</label>
+        <textarea asp-for="Title" class="form-control"></textarea>
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="StartDate">Начална дата</label>
+        <input asp-for="StartDate" value="@DateTime.Now.ToString("o")" class="form-control" />
+        <span asp-validation-for="StartDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="EndDate">Крайна дата</label>
+        <input asp-for="EndDate" value="@DateTime.Now.ToString("o")" class="form-control" />
+        <span asp-validation-for="EndDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Status">Статус</label>
+        <select asp-for="@Model.Status" asp-items="@Html.GetEnumSelectList<StatusType>()"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="TotalPrice">Обща цена</label>
+        <input asp-for="TotalPrice" class="form-control" />
+        <span asp-validation-for="TotalPrice" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DownPayment">Авансово плащане</label>
+        <input asp-for="DownPayment" class="form-control" />
+        <span asp-validation-for="DownPayment" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description">Описание</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CategoryId">Категория</label>
+        <select asp-for="CategoryId" class="form-control" asp-items="categories"></select>
+        <span asp-validation-for="CategoryId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ClientId">Клиент</label>
+        <select asp-for="ClientId" class="form-control" asp-items="clients"></select>
+        <span asp-validation-for="ClientId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Image">Снимка на проекта</label>
+        <input asp-for="Image" class="form-control" />
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+    <hr />
+    <input type="submit" class="btn btn-primary" value="Добави" />
+</form>

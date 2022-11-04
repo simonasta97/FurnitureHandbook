@@ -17,6 +17,15 @@
 
 <h1>@this.ViewData["Title"]</h1>
 <hr />
+
+<div>
+    <ul style="list-style:none">
+        <li class="nav-item">
+            <a class="btn btn-secondary"  asp-controller="Projects" asp-action="Create">Добави ПРОЕКТ</a>
+        </li>
+    </ul>
+</div>
+
 @foreach (var project in this.Model.Projects)
 {
     <div>

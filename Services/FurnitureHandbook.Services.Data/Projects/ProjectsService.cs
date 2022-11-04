@@ -26,7 +26,7 @@
             this.clientsRepository = clientsRepository;
         }
 
-        public async Task CreateAsync(CreateProjectInputModel projectModel)
+        public async Task CreateAsync(CreateProjectInputModel projectModel, string pathToSaveInDb)
         {
             if (projectModel.StartDate > projectModel.EndDate)
             {
@@ -36,9 +36,10 @@
 
             var project = new Project
             {
+                UserId = projectModel.UserId,
                 Title = projectModel.Title,
                 Description = projectModel.Description,
-                ImageUrl = projectModel.ImageUrl,
+                ImageUrl = pathToSaveInDb,
                 Status = projectModel.Status,
                 StartDate = projectModel.StartDate,
                 EndDate = projectModel.EndDate,

@@ -21,6 +21,7 @@
 
             public const string StartBeforeEndDate = "Началната дата на проекта трябва да бъде преди крайната дата!";
             public const string ClientNotExist = "Клиента не съществува!";
+            public const string ProjectAdded = "Проекта е създаден успешно!";
         }
 
         public class Furniture

@@ -6,6 +6,7 @@
 
     using FurnitureHandbook.Data.Models;
     using FurnitureHandbook.Services.Mapping;
+    using Microsoft.AspNetCore.Http;
 
     using static FurnitureHandbook.Common.GlobalConstants;
     using static FurnitureHandbook.Common.GlobalConstants.Project;
@@ -15,8 +16,6 @@
     public class CreateProjectInputModel : IMapFrom<Project>
     {
         public string UserId { get; set; }
-
-        public virtual ApplicationUser User { get; set; }
 
         [Display(Name = "Заглавие")]
         [Required(ErrorMessage = "Полето 'Заглавие' е задължително.")]
@@ -30,7 +29,7 @@
 
         [Display(Name = "Снимка")]
         [Required(ErrorMessage = "Снимка на проекта е задължителна.")]
-        public string ImageUrl { get; set; }
+        public IFormFile Image { get; set; }
 
         [Display(Name = "Цена")]
         [Required(ErrorMessage = "Полето 'Цена' е задължително.")]
