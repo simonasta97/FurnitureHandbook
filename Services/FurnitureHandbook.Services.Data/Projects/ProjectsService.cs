@@ -73,5 +73,28 @@
                 .Where(x => x.Id == id)
                 .To<TModel>()
                 .FirstOrDefaultAsync();
+
+        public async Task UpdateAsync(string id, EditProjectInputModel projectModel)
+        {
+            if (id == null)
+            {
+                throw new Exception(ProjectNotFound);
+            }
+
+            var project = this.projectsRepository
+                .All()
+                .FirstOrDefault(x => x.Id == id);
+
+            project.Title = projectModel.Title;
+            project.Description = projectModel.Description;
+            project.Status = projectModel.Status;
+            project.StartDate = projectModel.StartDate;
+            project.EndDate = projectModel.EndDate;
+            project.TotalPrice = projectModel.TotalPrice;
+            project.DownPayment = projectModel.DownPayment;
+
+            await this.projectsRepository.SaveChangesAsync();
+        }
+
     }
 }

@@ -131,5 +131,24 @@
 
             return this.View(trip);
         }
+
+        public IActionResult Edit(string id)
+        {
+            var inputModel = this.projectsService.GetByIdAsync<EditProjectInputModel>(id).Result;
+
+            return this.View(inputModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(string id, EditProjectInputModel inputModel)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(inputModel);
+            }
+
+            await this.projectsService.UpdateAsync(id, inputModel);
+            return this.RedirectToAction(nameof(this.ById), new { id });
+        }
     }
 }

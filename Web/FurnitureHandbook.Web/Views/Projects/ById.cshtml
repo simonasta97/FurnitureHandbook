@@ -23,6 +23,18 @@
             <p class="card-text"><small class="text-muted">Обща цена:</small> <span class="fw-bolder" style="font:bold">@Model.TotalPrice</span> <small class="text-muted">лв.</small></p>
             <p class="card-text"><small class="text-muted">Платено капаро:</small> <span class="fw-bolder" style="font:bold">@Model.DownPayment</span> <small class="text-muted">лв.</small></p>
         </div>
+        <div class="card-body d-md-inline-block">
+            <ul class="btn-group-toggle" style="list-style:none">
+                <li class="single-meta">
+                    <a asp-controller="Projects" asp-action="Edit" asp-route-id="@Model.Id" class="float-md-right btn btn-info">Промени</a>
+                </li>
+                <li class="single-meta">
+                    <form method="post" asp-action="Delete" id="deleteForm" asp-route-id="@Model.Id">
+                    </form>
+                    <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Изтрий</button>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
 

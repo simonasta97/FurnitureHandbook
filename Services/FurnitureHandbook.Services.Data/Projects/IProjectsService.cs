@@ -1,11 +1,12 @@
 ﻿namespace FurnitureHandbook.Services.Data.Projects
 {
-    using FurnitureHandbook.Web.ViewModels.Projects;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+
+    using FurnitureHandbook.Web.ViewModels.Projects;
 
     public interface IProjectsService
     {
@@ -16,5 +17,7 @@
         Task<int> GetCountAsync();
 
         Task<TModel> GetByIdAsync<TModel>(string id);
+
+        Task UpdateAsync(string id, EditProjectInputModel projectModel);
     }
 }
