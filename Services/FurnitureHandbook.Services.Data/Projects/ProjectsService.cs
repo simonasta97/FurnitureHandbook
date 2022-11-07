@@ -96,5 +96,19 @@
             await this.projectsRepository.SaveChangesAsync();
         }
 
+        public async Task DeleteAsync(string id)
+        {
+            var trip = await this.projectsRepository
+                .All()
+                .FirstOrDefaultAsync(x => x.Id == id);
+
+            if (trip == null)
+            {
+                throw new Exception(ProjectNotFound);
+            }
+
+            this.projectsRepository.Delete(trip);
+            await this.projectsRepository.SaveChangesAsync();
+        }
     }
 }

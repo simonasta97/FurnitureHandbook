@@ -150,5 +150,17 @@
             await this.projectsService.UpdateAsync(id, inputModel);
             return this.RedirectToAction(nameof(this.ById), new { id });
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(string id)
+        {
+            if (id == null)
+            {
+                return this.NotFound();
+            }
+
+            await this.projectsService.DeleteAsync(id);
+            return this.RedirectToAction(nameof(this.All));
+        }
     }
 }

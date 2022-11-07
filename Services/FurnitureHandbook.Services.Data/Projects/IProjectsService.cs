@@ -10,7 +10,7 @@
 
     public interface IProjectsService
     {
-        Task CreateAsync(CreateProjectInputModel projectModel,string pathToSaveInDb);
+        Task CreateAsync(CreateProjectInputModel projectModel, string pathToSaveInDb);
 
         Task<IEnumerable<TModel>> GetAllUserProjects<TModel>(string userId, int page, int itemsPerPage = 6);
 
@@ -19,5 +19,7 @@
         Task<TModel> GetByIdAsync<TModel>(string id);
 
         Task UpdateAsync(string id, EditProjectInputModel projectModel);
+
+        Task DeleteAsync(string id);
     }
 }

@@ -29,7 +29,7 @@
                     <a asp-controller="Projects" asp-action="Edit" asp-route-id="@Model.Id" class="float-md-right btn btn-info">Промени</a>
                 </li>
                 <li class="single-meta">
-                    <form method="post" asp-action="Delete" id="deleteForm" asp-route-id="@Model.Id">
+                    <form method="post" asp-controller="Projects" asp-action="Delete" asp-route-id="@Model.Id">
                     </form>
                     <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Изтрий</button>
                 </li>
@@ -71,3 +71,20 @@
         </div>
     </div>
 }
+
+<!--Delete Modal-->
+<div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Сигурни ли сте,че искате да изтриете проекта?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" onclick="deleteForm.submit()">Да</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Не</button>
+            </div>
+        </div>
+    </div>
+</div>
+Footer
+© 2022 GitHub, Inc.
