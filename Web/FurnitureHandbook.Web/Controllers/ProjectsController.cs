@@ -124,6 +124,28 @@
             return this.View(viewModel);
         }
 
+        public async Task<IActionResult> Active(int id = 1)
+        {
+            if (id <= 0)
+            {
+                return this.NotFound();
+            }
+
+            var userId = this.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            const int ItemsPerPage = 4;
+
+            var viewModel = new ProjectsListViewModel
+            {
+                ItemsPerPage = ItemsPerPage,
+                PageNumber = id,
+                Count = await this.projectsService.GetCountAsync(),
+                Projects = await this.projectsService.GetAllUserProjects<ProjectViewModel>(userId, id, ItemsPerPage),
+            };
+
+            viewModel.Projects = viewModel.Projects.Where(x => x.Status == "Active");
+            return this.View("All", viewModel);
+        }
+
         public async Task<IActionResult> ById(string id)
         {
             var trip = await this.projectsService

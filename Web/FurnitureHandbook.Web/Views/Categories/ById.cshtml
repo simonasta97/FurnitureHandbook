@@ -13,13 +13,15 @@
         </div>
         <div class="col-md-6 text-center">
             <div class="card-body">
-                <p class="card-text" style="font-size:18px">Документи</p>
+                <p class="card-text" style="font-size:18px">Документи:</p>
                 <ul style="list-style:none;margin-top:2%">
-                    <li>
-                        
-                    </li>
+                   @foreach (var document in this.Model.Documents)
+                   {
+                        <li>
+                            <a href="@document.FileUrl">@document.Name</a>
+                        </li>
+                   }
                 </ul>
-                <p style="font-family:Gill Sans">За @Model.Name има общо @*@Model.Documents.Count*@ документа.</p>
             </div>
         </div>
     </div>
