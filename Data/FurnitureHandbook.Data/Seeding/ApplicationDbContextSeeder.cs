@@ -32,6 +32,7 @@
                               new ClientSeeder(),
                               new CategorySeeder(),
                               new ProjectSeeder(),
+                              new DocumentSeeder(),
                           };
 
             foreach (var seeder in seeders)
