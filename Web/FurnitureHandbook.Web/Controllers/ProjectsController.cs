@@ -103,7 +103,7 @@
             return this.RedirectToAction(nameof(this.All));
         }
 
-        public async Task<IActionResult> All(int id = 1)
+        public async Task<IActionResult> All(string status, int id = 1)
         {
             if (id <= 0)
             {
@@ -118,32 +118,12 @@
                 ItemsPerPage = ItemsPerPage,
                 PageNumber = id,
                 Count = await this.projectsService.GetCountAsync(),
-                Projects = await this.projectsService.GetAllUserProjects<ProjectViewModel>(userId, id, ItemsPerPage),
+                Projects = status == null
+                    ? await this.projectsService.GetAllUserProjects<ProjectViewModel>(userId, id, ItemsPerPage)
+                    : await this.projectsService.FilterProjectsStatus<ProjectViewModel>(userId, status, id, ItemsPerPage),
             };
 
             return this.View(viewModel);
-        }
-
-        public async Task<IActionResult> Active(int id = 1)
-        {
-            if (id <= 0)
-            {
-                return this.NotFound();
-            }
-
-            var userId = this.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
-            const int ItemsPerPage = 4;
-
-            var viewModel = new ProjectsListViewModel
-            {
-                ItemsPerPage = ItemsPerPage,
-                PageNumber = id,
-                Count = await this.projectsService.GetCountAsync(),
-                Projects = await this.projectsService.GetAllUserProjects<ProjectViewModel>(userId, id, ItemsPerPage),
-            };
-
-            viewModel.Projects = viewModel.Projects.Where(x => x.Status == "Active");
-            return this.View("All", viewModel);
         }
 
         public async Task<IActionResult> ById(string id)

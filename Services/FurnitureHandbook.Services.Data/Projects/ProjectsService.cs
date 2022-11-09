@@ -62,6 +62,15 @@
                 .To<TModel>()
                 .ToListAsync();
 
+        public async Task<IEnumerable<TModel>> FilterProjectsStatus<TModel>(string userId, string status, int page, int itemsPerPage = 6)
+            => await this.projectsRepository
+                .AllAsNoTracking()
+                .Where(x => x.UserId == userId && x.Status == Enum.Parse<StatusType>(status))
+                .OrderByDescending(x => x.Id)
+                .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
+                .To<TModel>()
+                .ToListAsync();
+
         public async Task<int> GetCountAsync()
            => await this.projectsRepository
                .AllAsNoTracking()
@@ -98,16 +107,16 @@
 
         public async Task DeleteAsync(string id)
         {
-            var trip = await this.projectsRepository
+            var project = await this.projectsRepository
                 .All()
                 .FirstOrDefaultAsync(x => x.Id == id);
 
-            if (trip == null)
+            if (project == null)
             {
                 throw new Exception(ProjectNotFound);
             }
 
-            this.projectsRepository.Delete(trip);
+            this.projectsRepository.Delete(project);
             await this.projectsRepository.SaveChangesAsync();
         }
     }

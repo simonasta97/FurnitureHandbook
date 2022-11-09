@@ -23,9 +23,9 @@
         <li class="nav-item">
             <a class="btn btn-secondary"  asp-controller="Projects" asp-action="Create">Добави ПРОЕКТ</a>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <a class="btn btn-warning me-md-2" asp-controller="Projects" asp-action="Active">Активни</a>
-                <button class="btn btn-success me-md-2" type="button">Изпълнени</button>
-                <button class="btn btn-danger" type="button">Отказани</button>
+                <a class="btn btn-warning me-md-2" asp-controller="Projects" asp-action="All" asp-route-status="Active">Активни</a>
+                <a class="btn btn-success me-md-2" asp-controller="Projects" asp-action="All" asp-route-status="Completed">Изпълнени</a>
+                <a class="btn btn-danger me-md-2" asp-controller="Projects" asp-action="All" asp-route-status="Cancelled">Отказани</a>
             </div>
         </li>
     </ul>

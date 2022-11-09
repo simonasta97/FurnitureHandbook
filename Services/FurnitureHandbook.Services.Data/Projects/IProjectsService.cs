@@ -12,6 +12,8 @@
     {
         Task CreateAsync(CreateProjectInputModel projectModel, string pathToSaveInDb);
 
+        Task<IEnumerable<TModel>> FilterProjectsStatus<TModel>(string userId, string status, int page, int itemsPerPage = 6);
+
         Task<IEnumerable<TModel>> GetAllUserProjects<TModel>(string userId, int page, int itemsPerPage = 6);
 
         Task<int> GetCountAsync();
