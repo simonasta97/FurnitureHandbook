@@ -74,8 +74,8 @@
                 throw new Exception($"Невалиден формат на снимката - {extension}");
             }
 
-            var path = Path.Combine(wwwRootDirectory, "images/projects/", image.FileName); // Combine so you can save in wwwroot/images
-            var pathToSaveInDb = Path.Combine("/images/projects/", image.FileName); // Combine the path with /images/ and then append the image.FileName
+            var path = Path.Combine(wwwRootDirectory, "images/projects/", image.FileName);
+            var pathToSaveInDb = Path.Combine("/images/projects/", image.FileName);
 
             using (var fileStream = new FileStream(path, FileMode.Create))
             {

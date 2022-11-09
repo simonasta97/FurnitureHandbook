@@ -33,6 +33,7 @@
                               new CategorySeeder(),
                               new ProjectSeeder(),
                               new DocumentSeeder(),
+                              new UsersSeeder(),
                           };
 
             foreach (var seeder in seeders)

@@ -46,5 +46,13 @@
             public const string ClientAlreadyExist = "Клиента вече съществува!";
             public const string ClientAdded = "Клиента e добавен успешно!";
         }
+
+        public class Document
+        {
+            public const int MinSizeLength = 1;
+            public const int MaxSizeLength = int.MaxValue;
+            public const string DocumentAlreadyExist = "Вече съществува такъв документ!";
+            public const string DocumentNotFound = "Документа не е намерен!";
+        }
     }
 }
