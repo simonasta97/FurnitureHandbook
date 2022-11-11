@@ -1,0 +1,40 @@
+﻿@using FurnitureHandbook.Data.Models
+@model CreateDocumentInputModel
+@{
+    this.ViewData["Title"] = "Добави документ";
+    var categories = this.Model.Categories.Select(x => new SelectListItem(x.Value, x.Key));
+}
+
+
+
+<form method="post" class="col-md-6 offset-md-3"
+      enctype="multipart/form-data">
+    <h1>@this.ViewData["Title"]</h1>
+    <hr />
+    <div class="form-group">
+        <label asp-for="Name">Име на документа</label>
+        <textarea asp-for="Name" class="form-control"></textarea>
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CategoryId">Категория</label>
+        <select asp-for="CategoryId" class="form-control" asp-items="categories"></select>
+        <span asp-validation-for="CategoryId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="File">Качи файла</label>
+        <input asp-for="File" class="form-control" />
+        <span asp-validation-for="File" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.FileType">Тип на файла</label>
+        <select asp-for="@Model.FileType" asp-items="@Html.GetEnumSelectList<FileType>()"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Size">Размер</label>
+        <textarea asp-for="Size" class="form-control"></textarea>
+        <span asp-validation-for="Size" class="text-danger"></span>
+    </div>
+    <hr />
+    <input type="submit" class="btn btn-primary" value="Добави" />
+</form>

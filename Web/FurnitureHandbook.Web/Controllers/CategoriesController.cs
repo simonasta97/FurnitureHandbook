@@ -1,10 +1,11 @@
-﻿using FurnitureHandbook.Services.Data.Categories;
-using FurnitureHandbook.Web.ViewModels.Categories;
-using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
-
-namespace FurnitureHandbook.Web.Controllers
+﻿namespace FurnitureHandbook.Web.Controllers
 {
+    using System.Threading.Tasks;
+
+    using FurnitureHandbook.Services.Data.Categories;
+    using FurnitureHandbook.Web.ViewModels.Categories;
+    using Microsoft.AspNetCore.Mvc;
+
     public class CategoriesController : Controller
     {
         private readonly ICategoriesService categoriesService;

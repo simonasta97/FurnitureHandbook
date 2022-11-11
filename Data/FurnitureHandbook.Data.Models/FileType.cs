@@ -12,6 +12,5 @@
         Word = 2,
         Image = 3,
         Video = 4,
-        Url = 5,
     }
 }

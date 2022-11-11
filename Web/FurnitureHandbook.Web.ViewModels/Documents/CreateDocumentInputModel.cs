@@ -8,8 +8,8 @@
     using System.Threading.Tasks;
 
     using FurnitureHandbook.Data.Models;
+    using Microsoft.AspNetCore.Http;
 
-    using static FurnitureHandbook.Common.GlobalConstants;
     using static FurnitureHandbook.Common.GlobalConstants.Document;
 
     public class CreateDocumentInputModel
@@ -24,7 +24,7 @@
         public int Size { get; set; }
 
         [Required]
-        public string FileUrl { get; set; }
+        public IFormFile File { get; set; }
 
         [Display(Name = "Тип на файла")]
         [Required(ErrorMessage = "Полето 'Тип на файла' е задължително.")]

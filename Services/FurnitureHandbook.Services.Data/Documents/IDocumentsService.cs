@@ -11,7 +11,7 @@
 
     public interface IDocumentsService
     {
-        Task CreateAsync(CreateDocumentInputModel resourceModel);
+        Task CreateAsync(CreateDocumentInputModel resourceModel, string pathToSaveInDb);
 
         Task DeleteAsync(int id);
     }

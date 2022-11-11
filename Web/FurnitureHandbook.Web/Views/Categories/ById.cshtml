@@ -1,4 +1,5 @@
-﻿@model SingleCategoryViewModel
+﻿@using static FurnitureHandbook.Common.GlobalConstants
+@model SingleCategoryViewModel
 @{
     this.ViewData["Title"] = Model.Name;
 }
@@ -22,6 +23,10 @@
                         </li>
                    }
                 </ul>
+                @if (this.User.IsInRole(AdministratorRoleName))
+                {
+                    <a asp-area="Admin" asp-controller="Documents" asp-action="Create" class="float-md-right btn btn-primary">Добави документ</a>
+                }
             </div>
         </div>
     </div>

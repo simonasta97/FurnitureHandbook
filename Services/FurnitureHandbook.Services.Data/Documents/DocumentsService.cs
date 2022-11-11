@@ -21,7 +21,7 @@
             this.documentsRepository = documentsRepository;
         }
 
-        public async Task CreateAsync(CreateDocumentInputModel resourceModel)
+        public async Task CreateAsync(CreateDocumentInputModel resourceModel, string pathToSaveInDb)
         {
             var isExist = this.documentsRepository
                 .AllAsNoTracking()
@@ -35,7 +35,7 @@
             var document = new Document
             {
                 Name = resourceModel.Name,
-                FileUrl = resourceModel.FileUrl,
+                FileUrl = pathToSaveInDb,
                 Size = resourceModel.Size,
                 FileType = (FileType)Enum.Parse(typeof(FileType), resourceModel.FileType),
                 CategoryId = resourceModel.CategoryId,

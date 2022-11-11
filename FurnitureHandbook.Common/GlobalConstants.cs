@@ -49,10 +49,14 @@
 
         public class Document
         {
+
+            public const int MinNameLength = 3;
+            public const int MaxNameLength = 100;
             public const int MinSizeLength = 1;
             public const int MaxSizeLength = int.MaxValue;
             public const string DocumentAlreadyExist = "Вече съществува такъв документ!";
             public const string DocumentNotFound = "Документа не е намерен!";
+            public const string DocumentAdded = "Документа е добавен успешно!";
         }
     }
 }
