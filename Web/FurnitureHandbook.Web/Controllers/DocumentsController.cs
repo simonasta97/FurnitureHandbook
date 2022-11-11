@@ -83,5 +83,11 @@
 
             return this.RedirectToAction("All", "Categories");
         }
+
+        public async Task<IActionResult> Delete(int documentId)
+        {
+            await this.documentsService.DeleteAsync(documentId);
+            return this.RedirectToAction("All", "Categories");
+        }
     }
 }

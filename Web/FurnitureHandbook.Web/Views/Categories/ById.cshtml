@@ -15,18 +15,41 @@
         <div class="col-md-6 text-center">
             <div class="card-body">
                 <p class="card-text" style="font-size:18px">Документи:</p>
-                <ul style="list-style:none;margin-top:2%">
-                   @foreach (var document in this.Model.Documents)
-                   {
-                        <li>
+                <ul class="btn-group-toggle" style="list-style:none;margin-top:2%">
+                    @foreach (var document in this.Model.Documents)
+                    {
+                        <li class="single-meta">
                             <a href="@document.FileUrl">@document.Name</a>
+                            @if (this.User.IsInRole(AdministratorRoleName))
+                            {
+                                <a class="delete" id="deleteForm" asp-controller="Documents" asp-action="Delete" asp-route-documentId="@document.Id">
+                                    <i class="far fa-trash-alt" style="color: red" data-toggle="modal" data-target="#deleteModal"></i>
+                                </a>
+                            }
                         </li>
-                   }
+                    }
                 </ul>
                 @if (this.User.IsInRole(AdministratorRoleName))
                 {
                     <a asp-area="Admin" asp-controller="Documents" asp-action="Create" class="float-md-right btn btn-primary">Добави документ</a>
                 }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Delete Modal-->
+<div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <input type="hidden" id="bookToDeleteField" bind= />
+                <p>Потвърджавате ли изтриването на документа?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" onclick="deleteForm.submit()">Изтрий</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Отказ</button>
             </div>
         </div>
     </div>
