@@ -31,5 +31,12 @@
 
             return this.View(furniture);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await this.furnituresService.DeleteAsync(id);
+            return this.RedirectToAction("All", "Projects");
+        }
     }
 }

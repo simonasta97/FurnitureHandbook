@@ -11,6 +11,8 @@
     using FurnitureHandbook.Services.Mapping;
     using Microsoft.EntityFrameworkCore;
 
+    using static FurnitureHandbook.Common.GlobalConstants.Furniture;
+
     public class FurnituresService : IFurnituresService
     {
         private readonly IDeletableEntityRepository<Furniture> furnituresRepository;
@@ -26,5 +28,20 @@
                 .Where(x => x.Id == id)
                 .To<TModel>()
                 .FirstOrDefaultAsync();
+
+        public async Task DeleteAsync(int id)
+        {
+            var furniture = await this.furnituresRepository
+                .All()
+                .FirstOrDefaultAsync(x => x.Id == id);
+
+            if (furniture == null)
+            {
+                throw new Exception(FurnitureNotFound);
+            }
+
+            this.furnituresRepository.Delete(furniture);
+            await this.furnituresRepository.SaveChangesAsync();
+        }
     }
 }

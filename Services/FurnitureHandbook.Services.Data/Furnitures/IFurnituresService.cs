@@ -9,5 +9,7 @@
     public interface IFurnituresService
     {
         Task<TModel> GetByIdAsync<TModel>(int id);
+
+        Task DeleteAsync(int id);
     }
 }

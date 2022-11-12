@@ -6,6 +6,16 @@
 <h2>Мебел:  @this.ViewData["Title"]</h2>
 <hr />
 
+<div>
+    <ul style="list-style:none">
+        <li class="nav-item">
+            <form asp-controller="Furnitures" asp-action="Delete" id="deleteForm" asp-route-id="@Model.Id">
+            </form>
+            <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Изтрий</button>
+        </li>
+    </ul>
+</div>
+
 <div class="card mb-12" style="margin-top:3%">
     <div class="row">
         <div class="col-md-6">
@@ -36,6 +46,21 @@
                     </li>
                 </ul>
                 
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Delete Modal-->
+<div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Сигурни ли сте,че искате да изтриете информацията за тази мебел?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" onclick="deleteForm.submit()">Изтрий</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отказ</button>
             </div>
         </div>
     </div>
