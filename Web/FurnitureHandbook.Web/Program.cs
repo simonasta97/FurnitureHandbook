@@ -11,6 +11,7 @@
     using FurnitureHandbook.Services.Data.Categories;
     using FurnitureHandbook.Services.Data.Clients;
     using FurnitureHandbook.Services.Data.Documents;
+    using FurnitureHandbook.Services.Data.Furnitures;
     using FurnitureHandbook.Services.Data.Projects;
     using FurnitureHandbook.Services.Mapping;
     using FurnitureHandbook.Services.Messaging;
@@ -71,6 +72,7 @@
             services.AddTransient<ICategoriesService, CategoriesService>();
             services.AddTransient<IClientsService, ClientsService>();
             services.AddTransient<IDocumentsService, DocumentsService>();
+            services.AddTransient<IFurnituresService, FurnituresService>();
         }
 
         private static void Configure(WebApplication app)

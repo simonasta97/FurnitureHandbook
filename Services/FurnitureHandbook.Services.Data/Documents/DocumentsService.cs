@@ -45,11 +45,11 @@
             await this.documentsRepository.SaveChangesAsync();
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task DeleteAsync(int documentId)
         {
             var document = await this.documentsRepository
                 .All()
-                .FirstOrDefaultAsync(x => x.Id == id);
+                .FirstOrDefaultAsync(x => x.Id == documentId);
 
             if (document == null)
             {

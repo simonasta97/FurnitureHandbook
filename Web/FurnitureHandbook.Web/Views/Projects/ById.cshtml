@@ -29,7 +29,7 @@
                     <a asp-controller="Projects" asp-action="Edit" asp-route-id="@Model.Id" class="float-md-right btn btn-info">Промени</a>
                 </li>
                 <li class="single-meta">
-                    <form asp-controller="Projects" asp-action="Delete" asp-route-id="@Model.Id">
+                    <form asp-controller="Projects" asp-action="Delete" id="deleteForm" asp-route-id="@Model.Id">
                     </form>
                     <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Изтрий</button>
                 </li>
@@ -81,7 +81,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" onclick="deleteForm.submit()">Да</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Не</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Не</button>
             </div>
         </div>
     </div>

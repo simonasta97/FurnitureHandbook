@@ -13,6 +13,6 @@
     {
         Task CreateAsync(CreateDocumentInputModel resourceModel, string pathToSaveInDb);
 
-        Task DeleteAsync(int id);
+        Task DeleteAsync(int documentId);
     }
 }

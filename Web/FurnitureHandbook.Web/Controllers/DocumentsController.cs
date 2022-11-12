@@ -84,6 +84,7 @@
             return this.RedirectToAction("All", "Categories");
         }
 
+        [HttpPost]
         public async Task<IActionResult> Delete(int documentId)
         {
             await this.documentsService.DeleteAsync(documentId);

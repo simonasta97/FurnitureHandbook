@@ -1,0 +1,43 @@
+﻿@model SingleFurnitureViewModel
+@{
+    this.ViewData["Title"] = Model.Name;
+}
+
+<h2>Мебел:  @this.ViewData["Title"]</h2>
+<hr />
+
+<div class="card mb-12" style="margin-top:3%">
+    <div class="row">
+        <div class="col-md-6">
+            <img src=@Model.ImageUrl class="img-fluid rounded-start" alt=@Model.Name>
+        </div>
+        <div class="col-md-6 text-center">
+            <div class="card-body">
+                <ul style="list-style:none;margin-top:2%">
+                    
+                    <li>
+                        <p class="card-text" style="font-size:18px">Материал за изработка:</p>
+                        <p style="text-decoration-color:black;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size:25px">@Model.TextureName (@Model.TextureType)</p>
+                        <p style="text-decoration-color:black;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size:25px">Производител: @Model.TextureManufacturerName</p>
+                        <p style="text-decoration-color:black;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size:25px">Код: @Model.TextureTextureCode</p>
+                    </li>
+                        
+                    <li>
+                        <p class="card-text" style="font-size:18px">Кант:</p>
+                        <p style="text-decoration-color:black;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size:25px">@Model.EdgebandName (@Model.EdgebandThickness мм.)</p>
+                        <p style="text-decoration-color:black;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size:25px">Производител: @Model.EdgebandManufacturerName</p>
+                    </li>
+                    
+                    <li>
+                        <p class="card-text" style="font-size:18px">Мебелен обков:</p>
+                        <p style="text-decoration-color:black;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size:25px">@Model.HardwareMechanismType (@Model.HardwareMechanismQuantity бр.)</p>
+                        <p style="text-decoration-color:black;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size:25px">@Model.HardwareHingeType (@Model.HardwareHingeQuantity бр.)</p>
+                        <p style="text-decoration-color:black;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size:25px">Модел дръжки: @Model.HardwareHandleModel</p>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
