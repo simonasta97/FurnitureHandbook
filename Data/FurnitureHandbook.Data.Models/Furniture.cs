@@ -26,18 +26,17 @@
 
         public virtual Project Project { get; set; }
 
-        public int TextureId { get; set; }
+        public int? TextureId { get; set; }
 
         public virtual Texture Texture { get; set; }
 
-        public int EdgebandId { get; set; }
+        public int? EdgebandId { get; set; }
 
         public virtual Edgeband Edgeband { get; set; }
 
-        public int HardwareId { get; set; }
+        public int? HardwareId { get; set; }
 
         public virtual Hardware Hardware { get; set; }
 
-        public string Note { get; set; }
     }
 }

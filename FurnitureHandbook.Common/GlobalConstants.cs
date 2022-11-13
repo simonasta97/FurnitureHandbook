@@ -30,9 +30,8 @@
             public const int MinColorLength = 3;
             public const int MaxColorLength = 15;
 
-            public const int MaxNoteLength = 300;
-
             public const string FurnitureNotFound = "Мебелта не съществува!";
+            public const string FurnitureAdded = "Успешно добавихте нова мебел към вашия проект!";
         }
 
         public class Client

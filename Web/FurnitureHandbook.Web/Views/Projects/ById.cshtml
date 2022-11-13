@@ -42,6 +42,9 @@
     <div class="text-center">
         <h3 class="font-weight-light">Описание</h3>
         <p style="margin:30px; margin-left:20%; margin-right:20%">@Model.Description</p>
+        <a class="btn btn-secondary" style="margin-bottom:3%;margin-right:10%;margin-left:10%" asp-controller="Furnitures" asp-action="Create" asp-route-projectId="@Model.Id">
+            <i class="fa-solid fa-plus"></i>      МЕБЕЛ
+        </a>
     </div>
 </div>
 
@@ -72,6 +75,8 @@
     </div>
 }
 
+
+
 <!--Delete Modal-->
 <div class="modal" tabindex="-1" role="dialog" id="deleteModal">
     <div class="modal-dialog" role="document">
@@ -81,7 +86,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" onclick="deleteForm.submit()">Да</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Не</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Не</button>
             </div>
         </div>
     </div>

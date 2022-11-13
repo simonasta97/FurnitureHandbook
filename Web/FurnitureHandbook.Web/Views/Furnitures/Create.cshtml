@@ -1,0 +1,51 @@
+﻿@using FurnitureHandbook.Data.Models
+@model CreateFurnitureInputModel
+@{
+    this.ViewData["Title"] = "ДОБАВИ МЕБЕЛ";
+}
+
+@if (this.TempData.ContainsKey("Message"))
+{
+    <div class="alert alert-danger">@this.TempData["Message"]</div>
+}
+
+<form method="post" class="col-md-6 offset-md-3"
+      enctype="multipart/form-data">
+    <h1 class="text-center">@this.ViewData["Title"]</h1>
+    <hr />
+    <div class="form-group">
+        <label asp-for="Name">Мебел</label>
+        <textarea asp-for="Name" class="form-control"></textarea>
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Image">Снимка на проекта</label>
+        <input asp-for="Image" class="form-control" />
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Color">Цвят/Дизайн</label>
+        <textarea asp-for="Color" class="form-control"></textarea>
+        <span asp-validation-for="Color" class="text-danger"></span>
+    </div>
+    <hr />
+    <h3>Размери:</h3>
+    <div class="form-group">
+        <label asp-for="Length">Дължина</label>
+        <textarea asp-for="Length" class="form-control"></textarea>
+        <span asp-validation-for="Length" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Width">Ширина</label>
+        <textarea asp-for="Width" class="form-control"></textarea>
+        <span asp-validation-for="Width" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Depth">Дълбочина</label>
+        <textarea asp-for="Depth" class="form-control"></textarea>
+        <span asp-validation-for="Depth" class="text-danger"></span>
+    </div>
+    
+    <hr />
+    <input type="submit" class="btn btn-primary" value="Добави" />
+</form>

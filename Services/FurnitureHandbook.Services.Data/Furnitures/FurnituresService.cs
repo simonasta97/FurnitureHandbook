@@ -9,6 +9,8 @@
     using FurnitureHandbook.Data.Common.Repositories;
     using FurnitureHandbook.Data.Models;
     using FurnitureHandbook.Services.Mapping;
+    using FurnitureHandbook.Web.ViewModels.Furnitures;
+    using FurnitureHandbook.Web.ViewModels.Projects;
     using Microsoft.EntityFrameworkCore;
 
     using static FurnitureHandbook.Common.GlobalConstants.Furniture;
@@ -20,6 +22,24 @@
         public FurnituresService(IDeletableEntityRepository<Furniture> furnituresRepository)
         {
             this.furnituresRepository = furnituresRepository;
+        }
+
+        public async Task CreateAsync(CreateFurnitureInputModel furnitureModel, string pathToSaveInDb)
+        {
+
+            var furniture = new Furniture
+            {
+                ProjectId = furnitureModel.ProjectId,
+                Name = furnitureModel.Name,
+                Color = furnitureModel.Color,
+                ImageUrl = pathToSaveInDb,
+                Length = furnitureModel.Length,
+                Width = furnitureModel.Width,
+                Depth = furnitureModel.Depth,
+            };
+
+            await this.furnituresRepository.AddAsync(furniture);
+            await this.furnituresRepository.SaveChangesAsync();
         }
 
         public async Task<TModel> GetByIdAsync<TModel>(int id)
