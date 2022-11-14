@@ -86,7 +86,7 @@
             }
 
             this.TempData[Message] = FurnitureAdded;
-            return this.RedirectToAction("All", "Projects");
+            return this.RedirectToAction("ById", "Projects", new { id = projectId });
         }
 
         public async Task<IActionResult> ById(int id)
@@ -105,8 +105,9 @@
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {
+            var furnitureProjectId = this.furnituresService.GetProjectIdByFurnitureId(id);
             await this.furnituresService.DeleteAsync(id);
-            return this.RedirectToAction("All", "Projects");
+            return this.RedirectToAction("ById", "Projects", new { id = furnitureProjectId });
         }
     }
 }

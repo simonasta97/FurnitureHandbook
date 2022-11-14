@@ -14,6 +14,8 @@
 
         Task<TModel> GetByIdAsync<TModel>(int id);
 
+        string GetProjectIdByFurnitureId(int id);
+
         Task DeleteAsync(int id);
     }
 }

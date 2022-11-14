@@ -49,6 +49,11 @@
                 .To<TModel>()
                 .FirstOrDefaultAsync();
 
+        public string GetProjectIdByFurnitureId(int id)
+            => this.furnituresRepository
+                .All()
+                .FirstOrDefault(x => x.Id == id).ProjectId;
+
         public async Task DeleteAsync(int id)
         {
             var furniture = await this.furnituresRepository
