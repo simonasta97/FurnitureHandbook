@@ -32,7 +32,7 @@
     </div>
     <hr />
     <h3>Размери:</h3>
-    <p>Дължина/Височина/Дълбочина</p>
+    
     <div class="input-group mb-3">
         <input type="text" onfocus="this.value=''" class="form-control" asp-for="Length" placeholder="Дължина" aria-label="Lenght">
         <span class="input-group-text">/</span>
@@ -40,15 +40,52 @@
         <span class="input-group-text">/</span>
         <input type="text" onfocus="this.value=''" class="form-control" asp-for="Width" placeholder="Дълбочина" aria-label="Дълбочина">
     </div>
+    <small class="text-muted">Дължина/Височина/Дълбочина</small>
+    <hr />
+    <h3>Материал:</h3>
     <div class="form-group">
-        <label asp-for="TextureId">Материал</label>
-        <select asp-for="TextureId" class="form-control" asp-items="textures"></select>
+        <select asp-for="TextureId" class="form-control" asp-items="textures"><option selected>Моля изберете...</option></select>
         <span asp-validation-for="TextureId" class="text-danger"></span>
     </div>
+    <div class="form-group mb-3 ">
+        <label asp-for="TextureName">Материал</label>
+        <textarea asp-for="TextureName" class="form-control"></textarea>
+        <span asp-validation-for="TextureName" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="@Model.TextureType">Вид на материала</label>
+        <select asp-for="@Model.TextureType" asp-items="@Html.GetEnumSelectList<TextureType>()"></select>
+    </div>
     <div class="form-group">
-        <label asp-for="EdgebandId">Кант</label>
-        <select asp-for="EdgebandId" class="form-control" asp-items="edgebands"></select>
+        <label asp-for="TextureManufacturerName">Производител</label>
+        <textarea asp-for="TextureManufacturerName" class="form-control"></textarea>
+        <span asp-validation-for="TextureManufacturerName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="TextureCode">Код</label>
+        <textarea asp-for="TextureCode" class="form-control"></textarea>
+        <span asp-validation-for="TextureCode" class="text-danger"></span>
+    </div>
+    <hr />
+    <h3>Кант:</h3>
+    <div class="form-group">
+        <select asp-for="EdgebandId" class="form-control" asp-items="edgebands"><option selected>Моля изберете...</option></select>
         <span asp-validation-for="EdgebandId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="EdgebandName">Кант</label>
+        <textarea asp-for="EdgebandName" class="form-control"></textarea>
+        <span asp-validation-for="EdgebandName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="EdgebandThickness">Дебелина на канта(мм.)</label>
+        <textarea asp-for="EdgebandThickness" class="form-control"></textarea>
+        <span asp-validation-for="EdgebandThickness" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="EdgebandManufacturerName">Производител</label>
+        <textarea asp-for="EdgebandManufacturerName" class="form-control"></textarea>
+        <span asp-validation-for="EdgebandManufacturerName" class="text-danger"></span>
     </div>
     
     <hr />

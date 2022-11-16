@@ -14,7 +14,7 @@
 <div class="text-center">
     <ul style="list-style:none">
         <li class="nav-item">
-            <a class="btn btn-secondary btn-lg" asp-controller="Clients" asp-action="Create">Добави клиент</a>
+            <a class="btn btn-secondary btn-lg" asp-controller="Clients" asp-action="Create"><i class="fa-solid fa-user-plus"></i>   Добави клиент</a>
         </li>
     </ul>
 </div>
@@ -24,8 +24,10 @@
         <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">@client.FullName</h5>
-                    <p class="card-text">@client.PhoneNumber</p>
+                    <h5 class="card-title">
+                        <i class="fa-solid fa-user me-md-2"></i>@client.FullName
+                    </h5>
+                    <p class="card-text"><i class="fa-solid fa-phone me-md-2"></i>@client.PhoneNumber</p>
                     <p class="card-text">@client.Address</p>
                 </div>
             </div>

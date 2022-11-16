@@ -64,7 +64,7 @@
         [Display(Name = "Вид на материала")]
         public TextureType TextureType { get; set; }
 
-        [Display(Name = "Производител(материал)")]
+        [Display(Name = "Производител")]
         [StringLength(MaxNameLength, MinimumLength = MinNameLength)]
         public string TextureManufacturerName { get; set; }
 
@@ -80,7 +80,7 @@
         [Range(0.32, 2)]
         public double? EdgebandThickness { get; set; }
 
-        [Display(Name = "Производител(кант)")]
+        [Display(Name = "Производител")]
         [StringLength(MaxNameLength, MinimumLength = MinNameLength)]
         public string EdgebandManufacturerName { get; set; }
     }
