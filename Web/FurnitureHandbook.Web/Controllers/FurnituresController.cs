@@ -7,34 +7,44 @@
     using System.Threading.Tasks;
 
     using FurnitureHandbook.Services.Data.Categories;
+    using FurnitureHandbook.Services.Data.Clients;
+    using FurnitureHandbook.Services.Data.Edgebands;
     using FurnitureHandbook.Services.Data.Furnitures;
+    using FurnitureHandbook.Services.Data.Textures;
     using FurnitureHandbook.Web.ViewModels.Categories;
     using FurnitureHandbook.Web.ViewModels.Furnitures;
     using FurnitureHandbook.Web.ViewModels.Projects;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Mvc;
-
+    using Microsoft.AspNetCore.Mvc.Rendering;
     using static FurnitureHandbook.Common.GlobalConstants;
     using static FurnitureHandbook.Common.GlobalConstants.Furniture;
 
     [Authorize]
     public class FurnituresController : Controller
     {
-        private readonly IFurnituresService furnituresService;
         private readonly IWebHostEnvironment webHostEnvironment;
+
+        private readonly IFurnituresService furnituresService;
+        private readonly ITexturesService texturesService;
+        private readonly IEdgebandsService edgebandsService;
         private readonly string[] allowedExtensions = new[] { "jpg", "png", "pdf" };
 
-        public FurnituresController(IWebHostEnvironment webHostEnvironment, IFurnituresService furnituresService)
+        public FurnituresController(IWebHostEnvironment webHostEnvironment, IFurnituresService furnituresService, ITexturesService texturesService, IEdgebandsService edgebandsService)
         {
             this.webHostEnvironment = webHostEnvironment;
             this.furnituresService = furnituresService;
+            this.texturesService = texturesService;
+            this.edgebandsService = edgebandsService;
         }
 
         public IActionResult Create(string projectId)
         {
             var viewModel = new CreateFurnitureInputModel();
             viewModel.ProjectId = projectId;
+            viewModel.Textures = this.texturesService.GetAllAsKeyValuePairs();
+            viewModel.Edgebands = this.edgebandsService.GetAllAsKeyValuePairs();
             return this.View(viewModel);
         }
 
@@ -43,6 +53,8 @@
         {
             if (!this.ModelState.IsValid)
             {
+                inputModel.Textures = this.texturesService.GetAllAsKeyValuePairs();
+                inputModel.Edgebands = this.edgebandsService.GetAllAsKeyValuePairs();
                 return this.View(inputModel);
             }
 
@@ -79,6 +91,9 @@
             catch (Exception ex)
             {
                 this.ModelState.AddModelError(string.Empty, ex.Message);
+
+                inputModel.Textures = this.texturesService.GetAllAsKeyValuePairs();
+                inputModel.Edgebands = this.edgebandsService.GetAllAsKeyValuePairs();
 
                 this.TempData[Message] = ex.Message;
 

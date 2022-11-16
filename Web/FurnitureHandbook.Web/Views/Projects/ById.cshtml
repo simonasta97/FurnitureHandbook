@@ -4,6 +4,11 @@
     this.ViewData["Title"] = Model.Title;
 }
 
+@if (this.TempData.ContainsKey("Message"))
+{
+    <div class="alert alert-danger">@this.TempData["Message"]</div>
+}
+
 <h2 style="font-family: sans-serif">@this.ViewData["Title"]</h2>
 <h5 class="font-weight-lighter">Начална дата: @(Model.StartDate.HasValue ? Model.StartDate.Value.ToString("dd MMMM yyyy") : "")</h5>
 <h5 class="font-weight-lighter">Крайна дата: @(Model.EndDate.HasValue ? Model.StartDate.Value.ToString("dd MMMM yyyy") : "")</h5>

@@ -37,6 +37,5 @@
         public int? HardwareId { get; set; }
 
         public virtual Hardware Hardware { get; set; }
-
     }
 }

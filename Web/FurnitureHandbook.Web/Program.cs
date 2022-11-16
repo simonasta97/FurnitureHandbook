@@ -11,8 +11,10 @@
     using FurnitureHandbook.Services.Data.Categories;
     using FurnitureHandbook.Services.Data.Clients;
     using FurnitureHandbook.Services.Data.Documents;
+    using FurnitureHandbook.Services.Data.Edgebands;
     using FurnitureHandbook.Services.Data.Furnitures;
     using FurnitureHandbook.Services.Data.Projects;
+    using FurnitureHandbook.Services.Data.Textures;
     using FurnitureHandbook.Services.Mapping;
     using FurnitureHandbook.Services.Messaging;
     using FurnitureHandbook.Web.ViewModels;
@@ -73,6 +75,8 @@
             services.AddTransient<IClientsService, ClientsService>();
             services.AddTransient<IDocumentsService, DocumentsService>();
             services.AddTransient<IFurnituresService, FurnituresService>();
+            services.AddTransient<ITexturesService, TexturesService>();
+            services.AddTransient<IEdgebandsService, EdgebandsService>();
         }
 
         private static void Configure(WebApplication app)

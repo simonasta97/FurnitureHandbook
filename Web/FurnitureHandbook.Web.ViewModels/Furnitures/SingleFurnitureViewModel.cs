@@ -31,7 +31,7 @@
 
         public string EdgebandName { get; set; }
 
-        public double EdgebandThickness { get; set; }
+        public double? EdgebandThickness { get; set; }
 
         public string EdgebandManufacturerName { get; set; }
 

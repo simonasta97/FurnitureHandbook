@@ -2,6 +2,8 @@
 @model CreateFurnitureInputModel
 @{
     this.ViewData["Title"] = "ДОБАВИ МЕБЕЛ";
+    var textures = this.Model.Textures.Select(x => new SelectListItem(x.Value, x.Key));
+    var edgebands = this.Model.Edgebands.Select(x => new SelectListItem(x.Value, x.Key));
 }
 
 @if (this.TempData.ContainsKey("Message"))
@@ -30,20 +32,23 @@
     </div>
     <hr />
     <h3>Размери:</h3>
-    <div class="form-group">
-        <label asp-for="Length">Дължина</label>
-        <textarea asp-for="Length" class="form-control"></textarea>
-        <span asp-validation-for="Length" class="text-danger"></span>
+    <p>Дължина/Височина/Дълбочина</p>
+    <div class="input-group mb-3">
+        <input type="text" onfocus="this.value=''" class="form-control" asp-for="Length" placeholder="Дължина" aria-label="Lenght">
+        <span class="input-group-text">/</span>
+        <input type="text" onfocus="this.value=''" class="form-control" asp-for="Depth" placeholder="Височина" aria-label="Височина">
+        <span class="input-group-text">/</span>
+        <input type="text" onfocus="this.value=''" class="form-control" asp-for="Width" placeholder="Дълбочина" aria-label="Дълбочина">
     </div>
     <div class="form-group">
-        <label asp-for="Width">Ширина</label>
-        <textarea asp-for="Width" class="form-control"></textarea>
-        <span asp-validation-for="Width" class="text-danger"></span>
+        <label asp-for="TextureId">Материал</label>
+        <select asp-for="TextureId" class="form-control" asp-items="textures"></select>
+        <span asp-validation-for="TextureId" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Depth">Дълбочина</label>
-        <textarea asp-for="Depth" class="form-control"></textarea>
-        <span asp-validation-for="Depth" class="text-danger"></span>
+        <label asp-for="EdgebandId">Кант</label>
+        <select asp-for="EdgebandId" class="form-control" asp-items="edgebands"></select>
+        <span asp-validation-for="EdgebandId" class="text-danger"></span>
     </div>
     
     <hr />
