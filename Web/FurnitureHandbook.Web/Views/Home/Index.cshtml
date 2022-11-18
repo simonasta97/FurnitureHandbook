@@ -4,6 +4,39 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome to @GlobalConstants.SystemName!</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">@GlobalConstants.SystemName!</h1>
+    <hr class="border border-primary border-3 opacity-75">
+    <p>Вашият Наръчник за мебели!</p>
+    <div class="card text-center" style="margin-top:2%;margin-right:15%;margin-left:15%">
+        <img src="https://biond.bg/wp-content/uploads/2019/08/cover-design-portfolio-design.png" style="max-width:auto;" alt="...">
+    </div>
+</div>
+<hr class="border border-secondary border-2 opacity-50">
+<div class="row row-cols-1 row-cols-md-3 g-4" >
+    <div class="col">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title"><a asp-controller="Projects" asp-action="All"><i class="fa-solid fa-pencil me-md-2"></i></a>Проекти</h5>
+                <p class="card-text">За да създаваме най-добрите,качествени и дизайнерски мебели се нуждаем от идейни и професионални проекти!</p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card h-100">
+            
+            <div class="card-body">
+                <h5 class="card-title"><a asp-controller="Categories" asp-action="All"><i class="fa-solid fa-couch me-md-2"></i></a>Мебели</h5>
+                <p class="card-text">Проектиране,разкрояване,производство и монтажа на мебели, не е лесна задача. НО с помощта на FURNITURE HANDBOOK ще можете да изпълните всяка идея на клиента!!!</p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card h-100">
+            
+            <div class="card-body">
+                <h5 class="card-title"><a asp-controller="Clients" asp-action="All"><i class="fa-solid fa-face-smile me-md-2"></i></a>Клиенти</h5>
+                <p class="card-text">Клиентите са приоритет в това, което правим...Te са всичко, което определя бизнеса ни.</p>
+            </div>
+        </div>
+    </div>
 </div>

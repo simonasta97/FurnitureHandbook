@@ -37,6 +37,7 @@
         public async Task<IEnumerable<TModel>> GetAllAsync<TModel>()
            => await this.categoriesRepository
                .AllAsNoTracking()
+               .OrderBy(x => x.Name)
                .To<TModel>()
                .ToListAsync();
 

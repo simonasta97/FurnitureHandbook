@@ -7,7 +7,7 @@
 <h2 class ="text-center">Каква категория мебели ще произвеждаш?</h2>
 <hr />
 
-<div>
+@*<div>
     @foreach (var category in this.Model.Categories)
     {
         <div class="card text-center" style="margin-bottom:3%;margin-right:10%;margin-left:10%">
@@ -16,6 +16,21 @@
                 <p class="card-text" style="margin-right:5%;margin-left:5%">@category.Description</p>
             </div>
             <img src=@category.ImageUrl class="card-img-bottom rounded img-fluid" style="max-width:auto;" alt=@category.Name>
+        </div>
+    }
+</div>*@
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+     @foreach (var category in this.Model.Categories)
+    {
+        <div class="col">
+            <div class="card text-center" style="margin-bottom:3%;margin-right:10%;margin-left:10%">
+                <img src=@category.ImageUrl class="card-img-bottom rounded img-fluid" style="max-width:auto;" alt=@category.Name>
+                <div class="card-body">
+                    <a asp-controller="Categories" asp-action="ById" asp-route-id="@category.Id" class="card-title btn btn-outline-info">@category.Name</a>
+                    <p class="card-text" style="margin-right:5%;margin-left:5%">@category.Description</p>
+                </div>
+            </div>
         </div>
     }
 </div>
