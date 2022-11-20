@@ -21,31 +21,71 @@
         <div class="col-md-6">
             <img src=@Model.ImageUrl class="img-fluid rounded-start" alt=@Model.Name>
         </div>
-        <div class="col-md-6 text-center">
-            <div class="card-body">
-                <ul style="list-style:none;margin-top:2%">
-                    
-                    <li>
-                        <p class="card-text" style="font-size:18px">Материал за изработка:</p>
-                        <p style="text-decoration-color:black;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size:25px">@Model.TextureName (@Model.TextureType)</p>
-                        <p style="text-decoration-color:black;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size:25px">Производител: @Model.TextureManufacturerName</p>
-                        <p style="text-decoration-color:black;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size:25px">Код: @Model.TextureTextureCode</p>
-                    </li>
-                        
-                    <li>
-                        <p class="card-text" style="font-size:18px">Кант:</p>
-                        <p style="text-decoration-color:black;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size:25px">@Model.EdgebandName (@Model.EdgebandThickness мм.)</p>
-                        <p style="text-decoration-color:black;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size:25px">Производител: @Model.EdgebandManufacturerName</p>
-                    </li>
-                    
-                    <li>
-                        <p class="card-text" style="font-size:18px">Мебелен обков:</p>
-                        <p style="text-decoration-color:black;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size:25px">@Model.HardwareMechanismType (@Model.HardwareMechanismQuantity бр.)</p>
-                        <p style="text-decoration-color:black;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size:25px">@Model.HardwareHingeType (@Model.HardwareHingeQuantity бр.)</p>
-                        <p style="text-decoration-color:black;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size:25px">Модел дръжки: @Model.HardwareHandleModel</p>
-                    </li>
-                </ul>
-                
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <i class="fa-sharp fa-solid fa-screwdriver-wrench"></i>
+                        Материал
+                    </h3>
+                </div>
+
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-4">Дизайн</dt>
+                        <dd class="col-sm-8">@Model.TextureName -  @Model.TextureType</dd>
+                        <dt class="col-sm-4">Производител</dt>
+                        <dd class="col-sm-8">@Model.TextureManufacturerName</dd>
+                        <dt class="col-sm-4">Код</dt>
+                        <dd class="col-sm-8">@Model.TextureTextureCode</dd>
+                    </dl>
+                </div>
+
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <i class="fa-sharp fa-solid fa-stapler"></i>
+                        Кант
+                    </h3>
+                </div>
+
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-4">Дизайн</dt>
+                        <dd class="col-sm-8">@Model.EdgebandName</dd>
+                        <dt class="col-sm-4">Дебелина</dt>
+                        <dd class="col-sm-8">@Model.EdgebandThickness мм.</dd>
+                        <dt class="col-sm-4">Производител</dt>
+                        <dd class="col-sm-8">@Model.EdgebandManufacturerName</dd>
+                    </dl>
+                </div>
+
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <i class="fa-solid fa-gears"></i>
+                        Мебелен обков
+                    </h3>
+                </div>
+
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-4">Механизми</dt>
+                        <dd class="col-sm-8">@Model.HardwareMechanismType</dd>
+                        <dt class="col-sm-4">Количество</dt>
+                        <dd class="col-sm-8">@Model.HardwareMechanismQuantity бр.</dd>
+                        <dt class="col-sm-4">Панти</dt>
+                        <dd class="col-sm-8">@Model.HardwareHingeType</dd>
+                        <dt class="col-sm-4">Количество</dt>
+                        <dd class="col-sm-8">@Model.HardwareHingeQuantity бр.</dd>
+                        <dt class="col-sm-4">Модел дръжки</dt>
+                        <dd class="col-sm-8">@Model.HardwareHandleModel</dd>
+                    </dl>
+                </div>
+
             </div>
         </div>
     </div>
