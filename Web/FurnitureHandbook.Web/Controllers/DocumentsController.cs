@@ -21,7 +21,6 @@
         private readonly IWebHostEnvironment webHostEnvironment;
         private readonly IDocumentsService documentsService;
         private readonly ICategoriesService categoriesService;
-        private readonly string[] allowedFilesExtensions = new[] { "docx", "pdf", "mp4", "jpg", "png" };
 
         public DocumentsController(IWebHostEnvironment webHostEnvironment, IDocumentsService documentsService, ICategoriesService categoriesService)
         {
@@ -52,21 +51,7 @@
                 Directory.CreateDirectory(Path.Combine(wwwRootDirectory, "documents"));
             }
 
-            var document = inputModel.File;
-            var extension = Path.GetExtension(document.FileName).TrimStart('.');
-
-            if (!this.allowedFilesExtensions.Any(x => extension.EndsWith(x)))
-            {
-                throw new Exception($"Невалиден формат на файла - {extension}");
-            }
-
-            var path = Path.Combine(wwwRootDirectory, "documents/", document.FileName);
-            var pathToSaveInDb = Path.Combine("/documents/", document.FileName);
-
-            using (var fileStream = new FileStream(path, FileMode.Create))
-            {
-                document.CopyTo(fileStream);
-            }
+            var pathToSaveInDb = this.documentsService.UploadDocument(inputModel.File, wwwRootDirectory);
 
             try
             {

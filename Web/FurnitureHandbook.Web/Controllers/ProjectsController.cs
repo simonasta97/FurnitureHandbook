@@ -8,6 +8,7 @@
 
     using FurnitureHandbook.Services.Data.Categories;
     using FurnitureHandbook.Services.Data.Clients;
+    using FurnitureHandbook.Services.Data.Images;
     using FurnitureHandbook.Services.Data.Projects;
     using FurnitureHandbook.Web.ViewModels.Projects;
     using Microsoft.AspNetCore.Authorization;
@@ -24,18 +25,20 @@
         private readonly IProjectsService projectsService;
         private readonly ICategoriesService categoriesService;
         private readonly IClientsService clientsService;
-        private readonly string[] allowedExtensions = new[] { "jpg", "png", "gif" };
+        private readonly IImagesService imagesService;
 
         public ProjectsController(
             IWebHostEnvironment webHostEnvironment,
             IProjectsService projectsService,
             ICategoriesService categoriesService,
-            IClientsService clientsService)
+            IClientsService clientsService,
+            IImagesService imagesService)
         {
             this.webHostEnvironment = webHostEnvironment;
             this.projectsService = projectsService;
             this.categoriesService = categoriesService;
             this.clientsService = clientsService;
+            this.imagesService = imagesService;
         }
 
         public IActionResult Create()
@@ -64,23 +67,7 @@
                 Directory.CreateDirectory(Path.Combine(wwwRootDirectory, "images/projects"));
             }
 
-            var image = inputModel.Image;
-
-            var name = image.FileName;
-            var extension = Path.GetExtension(image.FileName).TrimStart('.');
-
-            if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
-            {
-                throw new Exception($"Невалиден формат на снимката - {extension}");
-            }
-
-            var path = Path.Combine(wwwRootDirectory, "images/projects/", image.FileName);
-            var pathToSaveInDb = Path.Combine("/images/projects/", image.FileName);
-
-            using (var fileStream = new FileStream(path, FileMode.Create))
-            {
-                image.CopyTo(fileStream);
-            }
+            var pathToSaveInDb = this.imagesService.UploadImages(inputModel.Image, wwwRootDirectory);
 
             try
             {

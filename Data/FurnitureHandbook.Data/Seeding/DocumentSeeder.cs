@@ -32,6 +32,22 @@
                     FileType = FileType.Image,
                     CategoryId = 1,
                 },
+                new Document
+                {
+                    Name = "Идеен проект за детска стая - момче",
+                    FileUrl = "/documents/Идеен проект за Детска стая_1.pdf",
+                    Size = 723,
+                    FileType = FileType.Pdf,
+                    CategoryId = 3,
+                },
+                new Document
+                {
+                    Name = "Идеен проект за детска стая - момиче",
+                    FileUrl = "/documents/Детска стая-лилаво с проект.pdf",
+                    Size = 144,
+                    FileType = FileType.Pdf,
+                    CategoryId = 3,
+                },
             };
 
             foreach (Document document in documentsList)

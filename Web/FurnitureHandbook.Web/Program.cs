@@ -13,6 +13,7 @@
     using FurnitureHandbook.Services.Data.Documents;
     using FurnitureHandbook.Services.Data.Edgebands;
     using FurnitureHandbook.Services.Data.Furnitures;
+    using FurnitureHandbook.Services.Data.Images;
     using FurnitureHandbook.Services.Data.Projects;
     using FurnitureHandbook.Services.Data.Textures;
     using FurnitureHandbook.Services.Mapping;
@@ -77,6 +78,7 @@
             services.AddTransient<IFurnituresService, FurnituresService>();
             services.AddTransient<ITexturesService, TexturesService>();
             services.AddTransient<IEdgebandsService, EdgebandsService>();
+            services.AddTransient<IImagesService, ImagesService>();
         }
 
         private static void Configure(WebApplication app)

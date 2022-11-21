@@ -10,6 +10,7 @@
     using FurnitureHandbook.Services.Data.Clients;
     using FurnitureHandbook.Services.Data.Edgebands;
     using FurnitureHandbook.Services.Data.Furnitures;
+    using FurnitureHandbook.Services.Data.Images;
     using FurnitureHandbook.Services.Data.Textures;
     using FurnitureHandbook.Web.ViewModels.Categories;
     using FurnitureHandbook.Web.ViewModels.Furnitures;
@@ -29,14 +30,15 @@
         private readonly IFurnituresService furnituresService;
         private readonly ITexturesService texturesService;
         private readonly IEdgebandsService edgebandsService;
-        private readonly string[] allowedExtensions = new[] { "jpg", "png", "pdf" };
+        private readonly IImagesService imagesService;
 
-        public FurnituresController(IWebHostEnvironment webHostEnvironment, IFurnituresService furnituresService, ITexturesService texturesService, IEdgebandsService edgebandsService)
+        public FurnituresController(IWebHostEnvironment webHostEnvironment, IFurnituresService furnituresService, ITexturesService texturesService, IEdgebandsService edgebandsService, IImagesService imagesService)
         {
             this.webHostEnvironment = webHostEnvironment;
             this.furnituresService = furnituresService;
             this.texturesService = texturesService;
             this.edgebandsService = edgebandsService;
+            this.imagesService = imagesService;
         }
 
         public IActionResult Create(string projectId)
@@ -61,28 +63,12 @@
             inputModel.ProjectId = projectId;
 
             var wwwRootDirectory = this.webHostEnvironment.WebRootPath;
-            if (Directory.Exists(Path.Combine(wwwRootDirectory, "images/furnitures")) == false)
+            if (Directory.Exists(Path.Combine(wwwRootDirectory, "images/projects")) == false)
             {
-                Directory.CreateDirectory(Path.Combine(wwwRootDirectory, "images/furnitures"));
+                Directory.CreateDirectory(Path.Combine(wwwRootDirectory, "images/projects"));
             }
 
-            var image = inputModel.Image;
-
-            var name = image.FileName;
-            var extension = Path.GetExtension(image.FileName).TrimStart('.');
-
-            if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
-            {
-                throw new Exception($"Невалиден формат на снимката - {extension}");
-            }
-
-            var path = Path.Combine(wwwRootDirectory, "images/furnitures/", image.FileName);
-            var pathToSaveInDb = Path.Combine("/images/furnitures/", image.FileName);
-
-            using (var fileStream = new FileStream(path, FileMode.Create))
-            {
-                image.CopyTo(fileStream);
-            }
+            var pathToSaveInDb = this.imagesService.UploadImages(inputModel.Image, wwwRootDirectory);
 
             try
             {
