@@ -20,12 +20,12 @@
 
         [Display(Name = "Телефонен номер")]
         [Required(ErrorMessage = "Полето 'Телефонен номер' е задължително!")]
-        [StringLength(MaxPhoneNumberLength, MinimumLength = MinPhoneNumberLength)]
+        [StringLength(MaxPhoneNumberLength, MinimumLength = MinPhoneNumberLength, ErrorMessage = "Полето {0} трябва да бъде между {2} и {1} символа.")]
         public string PhoneNumber { get; set; }
 
         [Display(Name = "Адрес")]
         [Required(ErrorMessage = "Полето 'Адрес' е задължително!")]
-        [StringLength(MaxAddressLength, MinimumLength = MinAddressLength)]
+        [StringLength(MaxAddressLength, MinimumLength = MinAddressLength, ErrorMessage = "Полето {0} трябва да бъде между {2} и {1} символа.")]
         public string Address { get; set; }
     }
 }

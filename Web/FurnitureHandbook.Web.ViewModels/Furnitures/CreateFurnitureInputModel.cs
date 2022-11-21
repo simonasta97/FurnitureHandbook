@@ -23,12 +23,12 @@
 
         [Display(Name = "Мебел")]
         [Required(ErrorMessage = "Полето 'Мебел' е задължително.")]
-        [StringLength(MaxNameLength, MinimumLength = MinNameLength)]
+        [StringLength(MaxNameLength, MinimumLength = MinNameLength, ErrorMessage = "Полето {0} трябва да бъде между {2} и {1} символа.")]
         public string Name { get; set; }
 
         [Display(Name = "Цвят")]
         [Required(ErrorMessage = "Полето 'Цвят' е задължително.")]
-        [StringLength(MaxNameLength, MinimumLength = MinNameLength)]
+        [StringLength(MaxNameLength, MinimumLength = MinNameLength, ErrorMessage = "Полето {0} трябва да бъде между {2} и {1} символа.")]
         public string Color { get; set; }
 
         [Display(Name = "Снимка")]
@@ -58,22 +58,22 @@
         public IEnumerable<KeyValuePair<string, string>> Edgebands { get; set; }
 
         [Display(Name = "Материал")]
-        [StringLength(MaxNameLength, MinimumLength = MinNameLength)]
+        [StringLength(MaxNameLength, MinimumLength = MinNameLength, ErrorMessage = "Полето {0} трябва да бъде между {2} и {1} символа.")]
         public string TextureName { get; set; }
 
         [Display(Name = "Вид на материала")]
         public TextureType TextureType { get; set; }
 
         [Display(Name = "Производител")]
-        [StringLength(MaxNameLength, MinimumLength = MinNameLength)]
+        [StringLength(MaxNameLength, MinimumLength = MinNameLength, ErrorMessage = "Полето {0} трябва да бъде между {2} и {1} символа.")]
         public string TextureManufacturerName { get; set; }
 
         [Display(Name = "Код")]
-        [StringLength(MaxNameLength, MinimumLength = MinNameLength)]
+        [StringLength(MaxNameLength, MinimumLength = MinNameLength, ErrorMessage = "Полето {0} трябва да бъде между {2} и {1} символа.")]
         public string TextureCode { get; set; }
 
         [Display(Name = "Кант")]
-        [StringLength(MaxNameLength, MinimumLength = MinNameLength)]
+        [StringLength(MaxNameLength, MinimumLength = MinNameLength, ErrorMessage = "Полето {0} трябва да бъде между {2} и {1} символа.")]
         public string EdgebandName { get; set; }
 
         [Display(Name = "Дебелина на кант(мм.)")]
@@ -81,7 +81,7 @@
         public double? EdgebandThickness { get; set; }
 
         [Display(Name = "Производител")]
-        [StringLength(MaxNameLength, MinimumLength = MinNameLength)]
+        [StringLength(MaxNameLength, MinimumLength = MinNameLength, ErrorMessage = "Полето {0} трябва да бъде между {2} и {1} символа.")]
         public string EdgebandManufacturerName { get; set; }
     }
 }

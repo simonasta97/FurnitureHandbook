@@ -16,7 +16,7 @@
     {
         [Display(Name = "Име на документа")]
         [Required(ErrorMessage = "Полето 'Име на документа' е задължително.")]
-        [StringLength(MaxNameLength, MinimumLength = MinNameLength)]
+        [StringLength(MaxNameLength, MinimumLength = MinNameLength, ErrorMessage = "Полето {0} трябва да бъде между {2} и {1} символа.")]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Полето 'Размер' е задължително.")]

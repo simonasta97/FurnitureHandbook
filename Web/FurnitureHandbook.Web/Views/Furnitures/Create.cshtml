@@ -47,6 +47,7 @@
         <select asp-for="TextureId" class="form-control" asp-items="textures"><option selected>Моля изберете...</option></select>
         <span asp-validation-for="TextureId" class="text-danger"></span>
     </div>
+    <small class="text-muted">Добавете нов материал към списъка(в случай,че не го намирате):</small>
     <div class="form-group mb-3 ">
         <label asp-for="TextureName">Материал</label>
         <textarea asp-for="TextureName" class="form-control"></textarea>
@@ -72,6 +73,7 @@
         <select asp-for="EdgebandId" class="form-control" asp-items="edgebands"><option selected>Моля изберете...</option></select>
         <span asp-validation-for="EdgebandId" class="text-danger"></span>
     </div>
+    <small class="text-muted">Добавете нов кант към списъка(в случай,че не го намирате):</small>
     <div class="form-group">
         <label asp-for="EdgebandName">Кант</label>
         <textarea asp-for="EdgebandName" class="form-control"></textarea>

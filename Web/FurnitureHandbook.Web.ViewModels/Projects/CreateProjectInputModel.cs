@@ -19,12 +19,12 @@
 
         [Display(Name = "Заглавие")]
         [Required(ErrorMessage = "Полето 'Заглавие' е задължително.")]
-        [StringLength(MaxTitleLength, MinimumLength = MinTitleLength)]
+        [StringLength(MaxTitleLength, MinimumLength = MinTitleLength, ErrorMessage = "Полето {0} трябва да бъде между {2} и {1} символа.")]
         public string Title { get; set; }
 
         [Display(Name = "Описание")]
         [Required(ErrorMessage = "Полето 'Описание' е задължително.")]
-        [StringLength(MaxDescriptionLength, MinimumLength = MinDescriptionLength)]
+        [StringLength(MaxDescriptionLength, MinimumLength = MinDescriptionLength, ErrorMessage = "Полето {0} трябва да бъде между {2} и {1} символа.")]
         public string Description { get; set; }
 
         [Display(Name = "Снимка")]

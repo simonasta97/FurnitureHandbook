@@ -63,7 +63,7 @@
         public async Task<IEnumerable<TModel>> GetAllAsync<TModel>()
         => await this.clientsRepository
                 .AllAsNoTracking()
-                .OrderByDescending(x => x.Id)
+                .OrderBy(x => x.FullName)
                 .To<TModel>()
                 .ToListAsync();
 
