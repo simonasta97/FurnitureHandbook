@@ -34,12 +34,36 @@ Vladislav Kramfilov и Stoyan Shopov.
 
 # Screenshots
 
+### Начална страница
+<kbd>![image](https://user-images.githubusercontent.com/103176056/203571417-5b3fe578-6226-4227-9d5a-482ad5b9750f.png)</kbd>
+<kbd>![image](https://user-images.githubusercontent.com/103176056/203573419-cde17ed4-827a-4e06-ac97-deef7a06cab2.png)</kbd>
+
+
 ### Проекти
 
-</kbd>![image](https://user-images.githubusercontent.com/103176056/203565045-22574c18-41b7-4d37-8171-337f5c9ddcad.png)</kbd>
-</kbd>![image](https://user-images.githubusercontent.com/103176056/203565325-954cb35a-dce6-465a-a9cb-33267f2afb88.png)</kbd>
+<kbd>![image](https://user-images.githubusercontent.com/103176056/203565045-22574c18-41b7-4d37-8171-337f5c9ddcad.png)</kbd>
+<kbd>![image](https://user-images.githubusercontent.com/103176056/203566846-2eeec175-18a2-4395-bb9c-1c2bb14e080e.png)</kbd>
+<kbd>![image](https://user-images.githubusercontent.com/103176056/203566489-f32f13d4-ffc1-4f5d-8f75-37b659db8571.png)</kbd>
+<kbd>![image](https://user-images.githubusercontent.com/103176056/203567887-5a485f4f-882a-4ebe-8e4f-fea77d77aae7.png)</kbd>
+<kbd>![image](https://user-images.githubusercontent.com/103176056/203568060-37918cf8-0747-41ee-96e1-b582ff66722d.png)</kbd>
+<kbd>![image](https://user-images.githubusercontent.com/103176056/203568487-b371cdaa-c651-4137-aa9a-2c2e5688707e.png)</kbd>
+<kbd>![image](https://user-images.githubusercontent.com/103176056/203568248-5c534957-cfe6-4988-8151-0738a471c217.png)</kbd>
+
+### Мебели
+<kbd>![image](https://user-images.githubusercontent.com/103176056/203569317-84f1d7de-9941-48c9-be98-a97d3cb67da0.png)</kbd>
+<kbd>![image](https://user-images.githubusercontent.com/103176056/203573837-1bb723c3-deab-4b3d-a7e8-072d87ede151.png)</kbd>
+<kbd>![image](https://user-images.githubusercontent.com/103176056/203569008-10168280-3edb-4a6b-89b0-14a0879936c7.png)</kbd>
+
+### Клиенти
+<kbd>![image](https://user-images.githubusercontent.com/103176056/203569629-3a42962c-5f8e-456e-8fef-0db7f9eadd24.png)</kbd>
+<kbd>![image](https://user-images.githubusercontent.com/103176056/203569831-6dcef9c4-0a17-449f-b22d-ce8b1a8ac9b7.png)</kbd>
+
+### Мебелна документация
+<kbd>![image](https://user-images.githubusercontent.com/103176056/203570134-31629ae5-8592-4418-a4fe-30caed9209ae.png)</kbd>
+<kbd>![image](https://user-images.githubusercontent.com/103176056/203570397-cb266ec6-4a70-4551-97f4-8d43e8289227.png)</kbd>
+<kbd>![image](https://user-images.githubusercontent.com/103176056/203570666-93ebb926-6983-42a2-bf4a-05f8b713936c.png)</kbd>
+<kbd>![image](https://user-images.githubusercontent.com/103176056/203570925-ea3fc33c-04e8-405e-b5b6-2ef466c6025c.png)</kbd>
 
 
-
-В момента програмата се изпитва в реална среда от семейния бизнес: Производство на мебели- МЕБЕЛИ МИЛЧЕВИ. 
+Към момента програмата се изпитва в реална среда от семейния бизнес: Производство на мебели- МЕБЕЛИ МИЛЧЕВИ. 
 Системата е напълно безплатна и вече се използва и от други потребители.
