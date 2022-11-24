@@ -36,6 +36,8 @@
                 Length = furnitureModel.Length,
                 Width = furnitureModel.Width,
                 Depth = furnitureModel.Depth,
+                TextureId = furnitureModel.TextureId,
+                EdgebandId = furnitureModel.EdgebandId,
             };
 
             await this.furnituresRepository.AddAsync(furniture);

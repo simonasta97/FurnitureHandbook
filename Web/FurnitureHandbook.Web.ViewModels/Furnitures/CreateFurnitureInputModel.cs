@@ -78,10 +78,25 @@
 
         [Display(Name = "Дебелина на кант(мм.)")]
         [Range(0.32, 2)]
-        public double? EdgebandThickness { get; set; }
+        public double EdgebandThickness { get; set; }
 
         [Display(Name = "Производител")]
         [StringLength(MaxNameLength, MinimumLength = MinNameLength, ErrorMessage = "Полето {0} трябва да бъде между {2} и {1} символа.")]
         public string EdgebandManufacturerName { get; set; }
+
+        [Display(Name = "Модел дръжки")]
+        public string HandleModel { get; set; }
+
+        [Display(Name = "Механизми")]
+        public string MechanismType { get; set; }
+
+        [Display(Name = "Количество механизми")]
+        public int MechanismQuantity { get; set; }
+
+        [Display(Name = "Панти")]
+        public string HingeType { get; set; }
+
+        [Display(Name = "Количество панти")]
+        public int HingeQuantity { get; set; }
     }
 }

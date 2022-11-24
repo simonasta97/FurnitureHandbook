@@ -72,6 +72,11 @@
 
             try
             {
+                if (inputModel.EdgebandId == 0)
+                {
+                    inputModel.EdgebandId = await this.edgebandsService.CreateAsync(inputModel);
+                }
+
                 await this.furnituresService.CreateAsync(inputModel, pathToSaveInDb);
             }
             catch (Exception ex)

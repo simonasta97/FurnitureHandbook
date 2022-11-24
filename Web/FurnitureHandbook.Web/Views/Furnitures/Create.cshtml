@@ -70,7 +70,9 @@
     <hr />
     <h3>Кант:</h3>
     <div class="form-group">
-        <select asp-for="EdgebandId" class="form-control" asp-items="edgebands"><option selected>Моля изберете...</option></select>
+        <select asp-for="EdgebandId" class="form-control" asp-items="edgebands">
+            <option value="0" selected>Моля изберете...</option>
+        </select>
         <span asp-validation-for="EdgebandId" class="text-danger"></span>
     </div>
     <small class="text-muted">Добавете нов кант към списъка(в случай,че не го намирате):</small>

@@ -52,7 +52,6 @@
             }
 
             var pathToSaveInDb = this.documentsService.UploadDocument(inputModel.File, wwwRootDirectory);
-
             try
             {
                 await this.documentsService.CreateAsync(inputModel, pathToSaveInDb);
@@ -66,7 +65,8 @@
                 return this.View(inputModel);
             }
 
-            return this.RedirectToAction("All", "Categories");
+            var categoryId = inputModel.CategoryId;
+            return this.RedirectToAction("ById", "Categories", new { id = categoryId });
         }
 
         [HttpPost]
