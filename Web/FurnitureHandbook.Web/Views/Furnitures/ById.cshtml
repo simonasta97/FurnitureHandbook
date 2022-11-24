@@ -1,6 +1,13 @@
 ﻿@model SingleFurnitureViewModel
 @{
     this.ViewData["Title"] = Model.Name;
+
+    IDictionary<string, string> textureTypes = new Dictionary<string, string>()
+    {
+        {"CHIPBOARD", "ПДЧ"},
+        {"MDF", "МДФ"},
+        {"Other", "Друг"},
+    };
 }
 
 <h2>Мебел:  @this.ViewData["Title"]</h2>
@@ -33,7 +40,7 @@
                 <div class="card-body">
                     <dl class="row">
                         <dt class="col-sm-4">Дизайн</dt>
-                        <dd class="col-sm-8">@Model.TextureName -  @Model.TextureType</dd>
+                        <dd class="col-sm-8">@Model.TextureName -  @textureTypes[Model.TextureType]</dd>
                         <dt class="col-sm-4">Производител</dt>
                         <dd class="col-sm-8">@Model.TextureManufacturerName</dd>
                         <dt class="col-sm-4">Код</dt>

@@ -10,6 +10,7 @@
     using FurnitureHandbook.Services.Data.Clients;
     using FurnitureHandbook.Services.Data.Edgebands;
     using FurnitureHandbook.Services.Data.Furnitures;
+    using FurnitureHandbook.Services.Data.Hardware;
     using FurnitureHandbook.Services.Data.Images;
     using FurnitureHandbook.Services.Data.Textures;
     using FurnitureHandbook.Web.ViewModels.Categories;
@@ -19,6 +20,7 @@
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
+
     using static FurnitureHandbook.Common.GlobalConstants;
     using static FurnitureHandbook.Common.GlobalConstants.Furniture;
 
@@ -30,14 +32,16 @@
         private readonly IFurnituresService furnituresService;
         private readonly ITexturesService texturesService;
         private readonly IEdgebandsService edgebandsService;
+        private readonly IHardwareService hardwareService;
         private readonly IImagesService imagesService;
 
-        public FurnituresController(IWebHostEnvironment webHostEnvironment, IFurnituresService furnituresService, ITexturesService texturesService, IEdgebandsService edgebandsService, IImagesService imagesService)
+        public FurnituresController(IWebHostEnvironment webHostEnvironment, IFurnituresService furnituresService, ITexturesService texturesService, IEdgebandsService edgebandsService, IHardwareService hardwareService, IImagesService imagesService)
         {
             this.webHostEnvironment = webHostEnvironment;
             this.furnituresService = furnituresService;
             this.texturesService = texturesService;
             this.edgebandsService = edgebandsService;
+            this.hardwareService = hardwareService;
             this.imagesService = imagesService;
         }
 
@@ -72,11 +76,17 @@
 
             try
             {
+                if (inputModel.TextureId == 0)
+                {
+                    inputModel.TextureId = await this.texturesService.CreateAsync(inputModel);
+                }
+
                 if (inputModel.EdgebandId == 0)
                 {
                     inputModel.EdgebandId = await this.edgebandsService.CreateAsync(inputModel);
                 }
 
+                inputModel.HardwareId = await this.hardwareService.CreateAsync(inputModel);
                 await this.furnituresService.CreateAsync(inputModel, pathToSaveInDb);
             }
             catch (Exception ex)

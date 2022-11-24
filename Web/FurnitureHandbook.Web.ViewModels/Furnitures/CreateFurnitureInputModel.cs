@@ -98,5 +98,9 @@
 
         [Display(Name = "Количество панти")]
         public int HingeQuantity { get; set; }
+
+        [Display(Name = "Мебелен обков")]
+
+        public int? HardwareId { get; set; }
     }
 }

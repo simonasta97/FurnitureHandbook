@@ -44,7 +44,9 @@
     <hr />
     <h3>Материал:</h3>
     <div class="form-group">
-        <select asp-for="TextureId" class="form-control" asp-items="textures"><option selected>Моля изберете...</option></select>
+        <select asp-for="TextureId" class="form-control" asp-items="textures">
+            <option value="0" selected>Моля изберете...</option>
+        </select>
         <span asp-validation-for="TextureId" class="text-danger"></span>
     </div>
     <small class="text-muted">Добавете нов материал към списъка(в случай,че не го намирате):</small>
@@ -90,6 +92,33 @@
         <label asp-for="EdgebandManufacturerName">Производител</label>
         <textarea asp-for="EdgebandManufacturerName" class="form-control"></textarea>
         <span asp-validation-for="EdgebandManufacturerName" class="text-danger"></span>
+    </div>
+    <hr />
+    <h3>Мебелен обков:</h3>
+    <div class="form-group">
+        <label asp-for="HandleModel">Модел дръжки</label>
+        <textarea asp-for="HandleModel" class="form-control"></textarea>
+        <span asp-validation-for="HandleModel" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="MechanismType">Механизми</label>
+        <textarea asp-for="MechanismType" class="form-control"></textarea>
+        <span asp-validation-for="MechanismType" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="MechanismQuantity">Брой механизми</label>
+        <textarea asp-for="MechanismQuantity" class="form-control"></textarea>
+        <span asp-validation-for="MechanismQuantity" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="HingeType">Панти</label>
+        <textarea asp-for="HingeType" class="form-control"></textarea>
+        <span asp-validation-for="HingeType" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="HingeQuantity">Брой панти</label>
+        <textarea asp-for="HingeQuantity" class="form-control"></textarea>
+        <span asp-validation-for="HingeQuantity" class="text-danger"></span>
     </div>
     
     <hr />

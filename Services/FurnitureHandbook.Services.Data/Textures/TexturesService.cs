@@ -1,5 +1,6 @@
 ﻿using FurnitureHandbook.Data.Common.Repositories;
 using FurnitureHandbook.Data.Models;
+using FurnitureHandbook.Web.ViewModels.Furnitures;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,35 @@ namespace FurnitureHandbook.Services.Data.Textures
                 .OrderBy(x => x.Name)
                 .ToList()
                 .Select(x => new KeyValuePair<string, string>(x.Id.ToString(), x.Name));
+        }
+
+        public async Task<int?> CreateAsync(CreateFurnitureInputModel furnitureModel)
+        {
+            var isExist = this.texturesRepository
+                .AllAsNoTracking()
+                .Any(x => x.Name == furnitureModel.TextureName && x.TextureCode == furnitureModel.TextureCode);
+
+            if (isExist)
+            {
+                throw new Exception("Материала вече съществува!");
+            }
+
+            var texture = new Texture
+            {
+                Name = furnitureModel.TextureName,
+                Type = furnitureModel.TextureType,
+                ManufacturerName = furnitureModel.TextureManufacturerName,
+                TextureCode = furnitureModel.TextureCode,
+            };
+
+            await this.texturesRepository.AddAsync(texture);
+            await this.texturesRepository.SaveChangesAsync();
+
+            var createdTexture = this.texturesRepository
+                .All()
+                .FirstOrDefault(x => x.Name == furnitureModel.TextureName && x.TextureCode == furnitureModel.TextureCode);
+
+            return createdTexture.Id;
         }
     }
 }

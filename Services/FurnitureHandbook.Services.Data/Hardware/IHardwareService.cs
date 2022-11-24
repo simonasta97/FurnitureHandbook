@@ -1,4 +1,4 @@
-﻿namespace FurnitureHandbook.Services.Data.Textures
+﻿namespace FurnitureHandbook.Services.Data.Hardware
 {
     using System;
     using System.Collections.Generic;
@@ -8,10 +8,8 @@
 
     using FurnitureHandbook.Web.ViewModels.Furnitures;
 
-    public interface ITexturesService
+    public interface IHardwareService
     {
-        IEnumerable<KeyValuePair<string, string>> GetAllAsKeyValuePairs();
-
         public Task<int?> CreateAsync(CreateFurnitureInputModel furnitureModel);
     }
 }
