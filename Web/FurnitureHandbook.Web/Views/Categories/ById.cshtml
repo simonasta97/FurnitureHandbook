@@ -22,12 +22,11 @@
                             <a href="@document.FileUrl">@document.Name</a>
                             @if (this.User.IsInRole(AdministratorRoleName))
                             {
-                                <form asp-controller="Documents" asp-action="Delete" id="@document.Id" asp-route-documentId="@document.Id">
+                                <form asp-action="Delete" asp-controller="Documents" asp-area="Admin" id="deleteForm" asp-route-documentId="@document.Id" method="post">
+                                    <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Изтрий</button>
                                 </form>
-                                <button class="btn btn-danger deleteBtn" data-toggle="modal" data-id="@document.Id" data-target="#deleteModal">Изтрий</button>
-                               @* <a asp-controller="Documents" asp-action="Delete" id="deleteForm" asp-route-documentId="@document.Id">
-                                    <i class="far fa-trash-alt" style="color: red" data-toggle="modal" data-target="#deleteModal"></i>
-                                </a>*@
+                                
+                                
                             }
                         </li>
                     }
@@ -42,7 +41,7 @@
 </div>
 
 
-<!--Delete Modal-->
+
 <div class="modal" tabindex="-1" role="dialog" id="deleteModal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -50,25 +49,9 @@
                 <p>Сигурни ли сте,че искате да изтриете документа?</p>
             </div>
             <div class="modal-footer">
-                <button type="button" id="deleteButton" class="btn btn-danger" onclick="submitDeleteForm()">Да</button>
+                <button type="button" class="btn btn-danger" onclick="deleteForm.submit()">Да</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Не</button>
             </div>
         </div>
     </div>
 </div>
-
-<script>
-    documentId = '';
-
-    var deleteButtons = document.getElementsByClassName('deleteBtn');
-    deleteButtons.forEach(x => x.addEventListener('click',getDocumentId));
-
-    function getDocumentId (event) {
-        currentDocumentId = $(this).data('id');
-        documentId = currentDocumentId;
-    }
-
-    function submitDeleteForm() {
-       document.getElementById(documentId).submit();
-    }
-</script>

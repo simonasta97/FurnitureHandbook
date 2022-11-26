@@ -12,6 +12,8 @@
     using FurnitureHandbook.Web.ViewModels.Furnitures;
     using Microsoft.EntityFrameworkCore;
 
+    using static FurnitureHandbook.Common.GlobalConstants.Edgeband;
+
     public class EdgebandsService : IEdgebandsService
     {
         private readonly IDeletableEntityRepository<Edgeband> edgebandsRepository;
@@ -43,7 +45,7 @@
 
             if (isExist)
             {
-                throw new Exception("Канта съществува");
+                throw new Exception(EdgebandAlreadyExist);
             }
 
             var edgeband = new Edgeband

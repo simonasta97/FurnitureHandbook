@@ -1,14 +1,17 @@
-﻿using FurnitureHandbook.Data.Common.Repositories;
-using FurnitureHandbook.Data.Models;
-using FurnitureHandbook.Web.ViewModels.Furnitures;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FurnitureHandbook.Services.Data.Textures
+﻿namespace FurnitureHandbook.Services.Data.Textures
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    using FurnitureHandbook.Data.Common.Repositories;
+    using FurnitureHandbook.Data.Models;
+    using FurnitureHandbook.Web.ViewModels.Furnitures;
+
+    using static FurnitureHandbook.Common.GlobalConstants.Texture;
+
     public class TexturesService : ITexturesService
     {
         private readonly IDeletableEntityRepository<Texture> texturesRepository;
@@ -40,7 +43,7 @@ namespace FurnitureHandbook.Services.Data.Textures
 
             if (isExist)
             {
-                throw new Exception("Материала вече съществува!");
+                throw new Exception(TextureAlreadyExist);
             }
 
             var texture = new Texture
