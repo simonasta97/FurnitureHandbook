@@ -48,6 +48,14 @@
                     FileType = FileType.Pdf,
                     CategoryId = 3,
                 },
+                new Document
+                {
+                    Name = "Стандарти за обзавеждане на детска стая",
+                    FileUrl = "/documents/Стандарти за обзавеждане на детска стая.docx",
+                    Size = 367,
+                    FileType = FileType.Word,
+                    CategoryId = 3,
+                },
             };
 
             foreach (Document document in documentsList)
