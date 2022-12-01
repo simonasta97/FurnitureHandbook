@@ -1,7 +1,11 @@
 ﻿@model PagingViewModel
 <nav aria-label="...">
     <ul class="pagination justify-content-center">
-        <li class="page-item @if (!Model.HasPreviousPage) { <text>disabled</text> }">
+        <li class="page-item 
+            @if (!Model.HasPreviousPage) 
+            {
+            <text>disabled</text>
+            }">
             <a class="page-link" asp-action="All" asp-route-id="@Model.PreviousPageNumber">Предишна</a>
         </li>
         @for (int i = Model.PageNumber - 4; i < Model.PageNumber; i++)
@@ -14,6 +18,7 @@
         <li class="page-item active" aria-current="page">
             <span class="page-link">
                 @Model.PageNumber
+
                 <span class="sr-only">(настояща)</span>
             </span>
         </li>
@@ -24,7 +29,9 @@
                 <li class="page-item"><a class="page-link" asp-action="All" asp-route-id="@i">@i</a></li>
             }
         }
-        <li class="page-item @if (!Model.HasNextPage) { <text>disabled</text> }">
+        <li class="page-item @if (!Model.HasNextPage) {
+        <text>disabled</text>
+ }">
             <a class="page-link" asp-action="All" asp-route-id="@Model.NextPageNumber">Следваща</a>
         </li>
     </ul>
