@@ -1,9 +1,10 @@
 {
   "dependencies": {
-    "mssql1": {
+    "appInsights1": {
       "secretStore": "LocalSecretsFile",
-      "type": "mssql.local",
-      "connectionId": "ConnectionStrings:DefaultConnection",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/microsoft.insights/components/furniturehandbook",
+      "type": "appInsights.azure",
+      "connectionId": "APPLICATIONINSIGHTS_CONNECTION_STRING",
       "dynamicId": null
     }
   }
