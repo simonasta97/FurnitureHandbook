@@ -40,7 +40,7 @@
                             Width = 85,
                             TextureId = 6,
                             EdgebandId = 2,
-                            HardwareId = 7,
+                            HardwareId = 1,
                        },
                        new Furniture
                        {
@@ -52,7 +52,7 @@
                             Width = 85,
                             TextureId = 6,
                             EdgebandId = 2,
-                            HardwareId = 7,
+                            HardwareId = 1,
                        },
                        new Furniture
                        {
@@ -64,7 +64,7 @@
                             Width = 240,
                             TextureId = 6,
                             EdgebandId = 3,
-                            HardwareId = 7,
+                            HardwareId = 1,
                        },
                     },
                 },
@@ -90,7 +90,7 @@
                             Width = 240,
                             TextureId = 3,
                             EdgebandId = 5,
-                            HardwareId = 8,
+                            HardwareId = 2,
                         },
                     },
                 },
@@ -116,7 +116,7 @@
                             Width = 240,
                             TextureId = 1,
                             EdgebandId = 1,
-                            HardwareId = 9,
+                            HardwareId = 3,
                         },
                     },
                 },
@@ -142,7 +142,7 @@
                             Width = 70,
                             TextureId = 4,
                             EdgebandId = 4,
-                            HardwareId = 7,
+                            HardwareId = 1,
                         },
                     },
                 },
