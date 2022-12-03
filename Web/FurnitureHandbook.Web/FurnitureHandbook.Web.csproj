@@ -13,6 +13,9 @@
         <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
         <ApplicationInsightsResourceId>/subscriptions/f25b101b-d776-44d3-acd9-79ae03c7a31c/resourceGroups/furniture-handbook/providers/microsoft.insights/components/furniturehandbook</ApplicationInsightsResourceId>
     </PropertyGroup>
+	<PropertyGroup>
+		<ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+	</PropertyGroup>
 	<ItemGroup>
 		<AdditionalFiles Include="..\..\stylecop.json" />
 	</ItemGroup>
