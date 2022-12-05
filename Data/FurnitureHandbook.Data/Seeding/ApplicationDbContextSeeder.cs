@@ -26,14 +26,14 @@
             var seeders = new List<ISeeder>
                           {
                               new RolesSeeder(),
-                              new TexturesSeeder(),
-                              new EdgebandSeeder(),
-                              new HardwareSeeder(),
-                              new ClientSeeder(),
-                              new CategorySeeder(),
-                              new ProjectSeeder(),
-                              new DocumentSeeder(),
-                              new UsersSeeder(),
+                              //new TexturesSeeder(),
+                              //new EdgebandSeeder(),
+                              //new HardwareSeeder(),
+                              //new ClientSeeder(),
+                              //new CategorySeeder(),
+                              //new ProjectSeeder(),
+                              //new DocumentSeeder(),
+                              //new UsersSeeder(),
                           };
 
             foreach (var seeder in seeders)
