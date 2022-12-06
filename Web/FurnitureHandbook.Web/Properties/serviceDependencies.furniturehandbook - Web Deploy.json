@@ -18,7 +18,7 @@
       "secretStore": "AzureAppSettings",
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/furniturehandbook/databases/FurnitureHandbook.Web_db",
       "type": "mssql.azure",
-      "connectionId": "DefaultConnection",
+      "connectionId": "ConnectionStrings:DefaultConnection",
       "dynamicId": null
     }
   }

@@ -8,9 +8,9 @@
       "dynamicId": null
     },
     "mssql1": {
-      "ignored": "true",
-      "type": "mssql",
-      "connectionId": "DefaultConnection",
+      "secretStore": "LocalSecretsFile",
+      "type": "mssql.onprem",
+      "connectionId": "ConnectionStrings:DefaultConnection",
       "dynamicId": null
     }
   }
