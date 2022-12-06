@@ -1,12 +1,5 @@
 {
   "dependencies": {
-    "secrets1": {
-      "secretStore": "AzureAppSettings",
-      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.KeyVault/vaults/FurnitureHandbookWebvaul",
-      "type": "secrets.keyVault",
-      "connectionId": "VaultUri",
-      "dynamicId": null
-    },
     "appInsights1": {
       "secretStore": "AzureAppSettings",
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/microsoft.insights/components/furniturehandbook",
@@ -16,10 +9,16 @@
     },
     "mssql1": {
       "secretStore": "AzureAppSettings",
-      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/furniturehandbook/databases/FurnitureHandbook.Web_db",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/furniturehandbook/databases/handbookdb",
       "type": "mssql.azure",
       "connectionId": "ConnectionStrings:DefaultConnection",
       "dynamicId": null
+    },
+    "secrets1": {
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.KeyVault/vaults/FurnitureHandbookWebvaul",
+      "type": "secrets.keyVault",
+      "connectionId": "VaultUri"
     }
   }
 }
