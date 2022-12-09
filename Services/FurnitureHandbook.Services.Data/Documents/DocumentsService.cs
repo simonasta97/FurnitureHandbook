@@ -50,9 +50,9 @@
 
         public async Task DeleteAsync(int documentId)
         {
-            var document = await this.documentsRepository
+            var document = this.documentsRepository
                 .All()
-                .FirstOrDefaultAsync(x => x.Id == documentId);
+                .FirstOrDefault(x => x.Id == documentId);
 
             if (document == null)
             {
