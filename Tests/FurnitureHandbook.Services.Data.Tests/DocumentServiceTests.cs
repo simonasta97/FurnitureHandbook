@@ -85,6 +85,5 @@
 
             await Assert.ThrowsAsync<System.Exception>(() => this.service.DeleteAsync(1));
         }
-
     }
 }

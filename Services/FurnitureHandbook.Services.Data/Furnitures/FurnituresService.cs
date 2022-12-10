@@ -26,7 +26,6 @@
 
         public async Task CreateAsync(CreateFurnitureInputModel furnitureModel, string pathToSaveInDb)
         {
-
             var furniture = new Furniture
             {
                 ProjectId = furnitureModel.ProjectId,
@@ -59,9 +58,9 @@
 
         public async Task DeleteAsync(int id)
         {
-            var furniture = await this.furnituresRepository
+            var furniture = this.furnituresRepository
                 .All()
-                .FirstOrDefaultAsync(x => x.Id == id);
+                .FirstOrDefault(x => x.Id == id);
 
             if (furniture == null)
             {

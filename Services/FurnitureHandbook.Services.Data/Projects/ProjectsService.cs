@@ -18,12 +18,10 @@
     public class ProjectsService : IProjectsService
     {
         private readonly IDeletableEntityRepository<Project> projectsRepository;
-        private readonly IDeletableEntityRepository<Client> clientsRepository;
 
-        public ProjectsService(IDeletableEntityRepository<Project> projectsRepository, IDeletableEntityRepository<Client> clientsRepository)
+        public ProjectsService(IDeletableEntityRepository<Project> projectsRepository)
         {
             this.projectsRepository = projectsRepository;
-            this.clientsRepository = clientsRepository;
         }
 
         public async Task CreateAsync(CreateProjectInputModel projectModel, string pathToSaveInDb)
@@ -107,9 +105,9 @@
 
         public async Task DeleteAsync(string id)
         {
-            var project = await this.projectsRepository
+            var project = this.projectsRepository
                 .All()
-                .FirstOrDefaultAsync(x => x.Id == id);
+                .FirstOrDefault(x => x.Id == id);
 
             if (project == null)
             {
