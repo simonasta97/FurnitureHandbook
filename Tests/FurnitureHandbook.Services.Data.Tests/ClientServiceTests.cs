@@ -8,10 +8,12 @@
 
     using FurnitureHandbook.Data.Common.Repositories;
     using FurnitureHandbook.Data.Models;
+    using FurnitureHandbook.Data.Repositories;
     using FurnitureHandbook.Services.Data.Clients;
     using FurnitureHandbook.Services.Data.Tests.Mocks;
     using FurnitureHandbook.Web.ViewModels.Clients;
     using Microsoft.AspNetCore.Http;
+    using Microsoft.EntityFrameworkCore;
     using Moq;
     using Xunit;
 
@@ -56,6 +58,13 @@
             };
 
             await Assert.ThrowsAsync<System.Exception>(() => this.service.CreateAsync(client));
+        }
+
+        [Fact]
+        public async Task GetCountShouldReturnCorrectNumber()
+        {
+            await this.service.GetCountAsync();
+            Assert.Equal(2, this.service.GetCountAsync().Result);
         }
     }
 }
