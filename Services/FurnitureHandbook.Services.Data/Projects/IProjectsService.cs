@@ -23,5 +23,7 @@
         Task UpdateAsync(string id, EditProjectInputModel projectModel);
 
         Task DeleteAsync(string id);
+
+        IEnumerable<TModel> Latest<TModel>();
     }
 }

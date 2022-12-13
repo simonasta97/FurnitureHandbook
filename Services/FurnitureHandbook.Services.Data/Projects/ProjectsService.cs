@@ -31,7 +31,6 @@
                 throw new Exception(StartBeforeEndDate);
             }
 
-
             var project = new Project
             {
                 UserId = projectModel.UserId,
@@ -117,5 +116,13 @@
             this.projectsRepository.Delete(project);
             await this.projectsRepository.SaveChangesAsync();
         }
+
+        public IEnumerable<TModel> Latest<TModel>()
+           => this.projectsRepository
+               .All()
+               .OrderByDescending(c => c.Id)
+               .To<TModel>()
+               .Take(3)
+               .ToList();
     }
 }

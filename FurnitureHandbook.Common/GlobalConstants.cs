@@ -14,6 +14,11 @@
         public const int MinDescriptionLength = 10;
         public const int MaxDescriptionLength = 500;
 
+        public class Cache
+        {
+            public const string LatestProjectsCacheKey = nameof(LatestProjectsCacheKey);
+        }
+
         public class Project
         {
             public const int MinTitleLength = 5;
