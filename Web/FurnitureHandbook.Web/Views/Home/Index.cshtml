@@ -59,48 +59,47 @@
 <!-- Latest Projects -->
 @if (this.User.Identity.IsAuthenticated)
 {
-    
-}
-<div class="text-center">
-    <div class="row row-cols-1 row-cols-md-3 g-4" style="margin-top:3%;">
-        <div class="col">
-            <div class="card h-100">
-                <img src=@firstProject.ImageUrl class="card-img-top" height="300" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">@firstProject.Title</h5>
-                    <p class="card-text">Статус на проекта: @status[firstProject.Status]</p>
-                </div>
-                <div class="card-footer">
-                    <p class="float-md-left font-weight-bold">@firstProject.TotalPrice лв.</p>
-                    <a asp-controller="Projects" asp-action="ById" asp-route-id="@firstProject.Id" class="float-md-right btn btn-outline-info">Виж Детайли</a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <img src=@secondProject.ImageUrl class="card-img-top" height="300" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">@secondProject.Title</h5>
-                    <p class="card-text">Статус на проекта: @status[secondProject.Status]</p>
-                </div>
-                <div class="card-footer">
-                    <p class="float-md-left font-weight-bold">@secondProject.TotalPrice лв.</p>
-                    <a asp-controller="Projects" asp-action="ById" asp-route-id="@secondProject.Id" class="float-md-right btn btn-outline-info">Виж Детайли</a>
+    <div class="text-center">
+        <div class="row row-cols-1 row-cols-md-3 g-4" style="margin-top:3%;">
+            <div class="col">
+                <div class="card h-100">
+                    <img src=@firstProject.ImageUrl class="card-img-top" height="300" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@firstProject.Title</h5>
+                        <p class="card-text">Статус на проекта: @status[firstProject.Status]</p>
+                    </div>
+                    <div class="card-footer">
+                        <p class="float-md-left font-weight-bold">@firstProject.TotalPrice лв.</p>
+                        <a asp-controller="Projects" asp-action="ById" asp-route-id="@firstProject.Id" class="float-md-right btn btn-outline-info">Виж Детайли</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <img src=@thirdProject.ImageUrl class="card-img-top" height="300" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">@thirdProject.Title</h5>
-                    <p class="card-text">Статус на проекта: @status[thirdProject.Status]</p>
+            <div class="col">
+                <div class="card h-100">
+                    <img src=@secondProject.ImageUrl class="card-img-top" height="300" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@secondProject.Title</h5>
+                        <p class="card-text">Статус на проекта: @status[secondProject.Status]</p>
+                    </div>
+                    <div class="card-footer">
+                        <p class="float-md-left font-weight-bold">@secondProject.TotalPrice лв.</p>
+                        <a asp-controller="Projects" asp-action="ById" asp-route-id="@secondProject.Id" class="float-md-right btn btn-outline-info">Виж Детайли</a>
+                    </div>
                 </div>
-                <div class="card-footer">
-                    <p class="float-md-left font-weight-bold">@thirdProject.TotalPrice лв.</p>
-                    <a asp-controller="Projects" asp-action="ById" asp-route-id="@thirdProject.Id" class="float-md-right btn btn-outline-info">Виж Детайли</a>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src=@thirdProject.ImageUrl class="card-img-top" height="300" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@thirdProject.Title</h5>
+                        <p class="card-text">Статус на проекта: @status[thirdProject.Status]</p>
+                    </div>
+                    <div class="card-footer">
+                        <p class="float-md-left font-weight-bold">@thirdProject.TotalPrice лв.</p>
+                        <a asp-controller="Projects" asp-action="ById" asp-route-id="@thirdProject.Id" class="float-md-right btn btn-outline-info">Виж Детайли</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+}
