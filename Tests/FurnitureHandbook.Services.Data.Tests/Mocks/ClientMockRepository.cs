@@ -8,6 +8,7 @@
 
     using FurnitureHandbook.Data.Common.Repositories;
     using FurnitureHandbook.Data.Models;
+    using MockQueryable.Moq;
     using Moq;
 
     public class ClientMockRepository
@@ -34,7 +35,7 @@
 
             mockRepo.Setup(r => r.All()).Returns(list.AsQueryable());
 
-            mockRepo.Setup(r => r.AllAsNoTracking()).Returns(list.Where(x => x.IsDeleted == false).AsQueryable());
+            mockRepo.Setup(r => r.AllAsNoTracking()).Returns(list.Where(x => x.IsDeleted == false).AsQueryable().BuildMock());
 
             mockRepo.Setup(r => r.AllAsNoTrackingWithDeleted()).Returns(list.AsQueryable());
 

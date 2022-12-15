@@ -9,6 +9,13 @@
     var firstProject = projects.Any() ? projects[0] : null;
     var secondProject = projects.Length > 1 ? projects[1] : null;
     var thirdProject = projects.Length > 2 ? projects[2] : null;
+
+    IDictionary<string, string> status = new Dictionary<string, string>()
+    {
+        {"Completed", "Завършен"},
+        {"Active", "Активен"},
+        {"Cancelled", "Отказан"},
+    };
 }
 
 <div class="text-center">
@@ -50,6 +57,10 @@
 </div>
 
 <!-- Latest Projects -->
+@if (this.User.Identity.IsAuthenticated)
+{
+    
+}
 <div class="text-center">
     <div class="row row-cols-1 row-cols-md-3 g-4" style="margin-top:3%;">
         <div class="col">
@@ -57,11 +68,11 @@
                 <img src=@firstProject.ImageUrl class="card-img-top" height="300" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">@firstProject.Title</h5>
-                    <p class="card-text">Статус на проекта: @firstProject.Status</p>
+                    <p class="card-text">Статус на проекта: @status[firstProject.Status]</p>
                 </div>
                 <div class="card-footer">
                     <p class="float-md-left font-weight-bold">@firstProject.TotalPrice лв.</p>
-                    <a asp-controller="Trips" asp-action="ById" asp-route-id="@firstProject.Id" class="float-md-right btn btn-outline-info">View Details</a>
+                    <a asp-controller="Projects" asp-action="ById" asp-route-id="@firstProject.Id" class="float-md-right btn btn-outline-info">Виж Детайли</a>
                 </div>
             </div>
         </div>
@@ -70,11 +81,11 @@
                 <img src=@secondProject.ImageUrl class="card-img-top" height="300" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">@secondProject.Title</h5>
-                    <p class="card-text">Статус на проекта: @secondProject.Status</p>
+                    <p class="card-text">Статус на проекта: @status[secondProject.Status]</p>
                 </div>
                 <div class="card-footer">
                     <p class="float-md-left font-weight-bold">@secondProject.TotalPrice лв.</p>
-                    <a asp-controller="Trips" asp-action="ById" asp-route-id="@secondProject.Id" class="float-md-right btn btn-outline-info">View Details</a>
+                    <a asp-controller="Projects" asp-action="ById" asp-route-id="@secondProject.Id" class="float-md-right btn btn-outline-info">Виж Детайли</a>
                 </div>
             </div>
         </div>
@@ -83,11 +94,11 @@
                 <img src=@thirdProject.ImageUrl class="card-img-top" height="300" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">@thirdProject.Title</h5>
-                    <p class="card-text">Статус на проекта: @thirdProject.Status</p>
+                    <p class="card-text">Статус на проекта: @status[thirdProject.Status]</p>
                 </div>
                 <div class="card-footer">
                     <p class="float-md-left font-weight-bold">@thirdProject.TotalPrice лв.</p>
-                    <a asp-controller="Trips" asp-action="ById" asp-route-id="@thirdProject.Id" class="float-md-right btn btn-outline-info">View Details</a>
+                    <a asp-controller="Projects" asp-action="ById" asp-route-id="@thirdProject.Id" class="float-md-right btn btn-outline-info">Виж Детайли</a>
                 </div>
             </div>
         </div>

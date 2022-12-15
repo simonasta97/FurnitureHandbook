@@ -21,6 +21,7 @@
                new Furniture
                {
                     Id = 1,
+                    ProjectId = "d958d727-ab35-4b8e-9328-63ebc3790498",
                     Name = "Кухня",
                     ImageUrl = "/images/Atanas-Dimitrov-Kuhnq.jpg",
                     Color = "Сив мат с дъб Кендъл",

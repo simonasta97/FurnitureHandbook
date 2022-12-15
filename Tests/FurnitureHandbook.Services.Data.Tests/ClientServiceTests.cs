@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Reflection;
     using System.Text;
     using System.Threading.Tasks;
 
@@ -11,6 +12,8 @@
     using FurnitureHandbook.Data.Repositories;
     using FurnitureHandbook.Services.Data.Clients;
     using FurnitureHandbook.Services.Data.Tests.Mocks;
+    using FurnitureHandbook.Services.Mapping;
+    using FurnitureHandbook.Web.ViewModels.Categories;
     using FurnitureHandbook.Web.ViewModels.Clients;
     using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;
@@ -65,6 +68,15 @@
         {
             await this.service.GetCountAsync();
             Assert.Equal(2, this.service.GetCountAsync().Result);
+        }
+
+        [Fact]
+        public async Task GetAllShouldReturnsAllListWithClients()
+        {
+            AutoMapperConfig.RegisterMappings(Assembly.Load("FurnitureHandbook.Web.ViewModels"));
+            var result = await this.service.GetAllAsync<ClientViewModel>();
+            Assert.Equal(2, result.Count());
+            Assert.Equal("Александра Файн", result.Where(x => x.FullName == "Александра Файн").Select(x => x.FullName).FirstOrDefault());
         }
     }
 }

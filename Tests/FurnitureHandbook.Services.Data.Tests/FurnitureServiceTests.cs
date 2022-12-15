@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Reflection;
     using System.Text;
     using System.Threading.Tasks;
 
@@ -11,6 +12,8 @@
     using FurnitureHandbook.Services.Data.Edgebands;
     using FurnitureHandbook.Services.Data.Furnitures;
     using FurnitureHandbook.Services.Data.Tests.Mocks;
+    using FurnitureHandbook.Services.Mapping;
+    using FurnitureHandbook.Web.ViewModels.Clients;
     using FurnitureHandbook.Web.ViewModels.Furnitures;
     using Microsoft.AspNetCore.Http;
     using Moq;
@@ -72,6 +75,14 @@
             await this.service.DeleteAsync(2);
 
             await Assert.ThrowsAsync<System.Exception>(() => this.service.DeleteAsync(1));
+        }
+
+        [Fact]
+        public void GetProjectIdByFurnitureShouldReturnCorectResult()
+        {
+            var result = this.service.GetProjectIdByFurnitureId(1);
+
+            Assert.Equal("d958d727-ab35-4b8e-9328-63ebc3790498", result);
         }
     }
 }

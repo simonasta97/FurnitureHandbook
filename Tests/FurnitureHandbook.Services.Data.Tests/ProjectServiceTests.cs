@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Reflection;
     using System.Text;
     using System.Threading.Tasks;
 
@@ -11,6 +12,8 @@
     using FurnitureHandbook.Services.Data.Furnitures;
     using FurnitureHandbook.Services.Data.Projects;
     using FurnitureHandbook.Services.Data.Tests.Mocks;
+    using FurnitureHandbook.Services.Mapping;
+    using FurnitureHandbook.Web.ViewModels.Clients;
     using FurnitureHandbook.Web.ViewModels.Documents;
     using FurnitureHandbook.Web.ViewModels.Furnitures;
     using FurnitureHandbook.Web.ViewModels.Projects;
@@ -133,6 +136,13 @@
             await this.service.DeleteAsync("71944391-a4ec-4386-85e5-764fa727738e");
 
             await Assert.ThrowsAsync<System.Exception>(() => this.service.DeleteAsync("d958d727-ab35-4b8e-9328-63ebc3790498"));
+        }
+
+        [Fact]
+        public async Task GetCountShouldReturnCorrectNumber()
+        {
+            await this.service.GetCountAsync();
+            Assert.Equal(2, this.service.GetCountAsync().Result);
         }
     }
 }
